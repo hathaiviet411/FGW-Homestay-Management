@@ -1,8 +1,5 @@
 <?php
-
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,7 +10,15 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::namespace('Api')->group(function() {
+    Route::post('/auth/login','AuthController@login');
+    Route::middleware(['auth:sanctum'])->group(function () {
+        Route::get('/auth/user','AuthController@user');
+        Route::apiResource('/users','UserController');
+        Route::get('roles','UserController@roles');
+        Route::apiResource('category', 'CategoryController');
+        Route::apiResource('department', 'DepartmentController');
+        Route::apiResource('idea', 'IdeaController');
+        Route::post('idea/comment', 'IdeaController@comment');
+    });
 });

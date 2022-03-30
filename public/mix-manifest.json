@@ -1,5 +1,10 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/manifest.js": "/js/manifest.js",
+    "/js/Login.94e85d.js": "/js/Login.94e85d.js",
+    "/js/Page Not Found.e3c59b.js": "/js/Page Not Found.e3c59b.js",
+    "/js/Dashboard.bfe22f.js": "/js/Dashboard.bfe22f.js",
+    "/js/Account Management List.8d6d45.js": "/js/Account Management List.8d6d45.js",
     "/css/app.css": "/css/app.css",
-    "/css/loader.css": "/css/loader.css"
+    "/js/vendor.js": "/js/vendor.js"
 }

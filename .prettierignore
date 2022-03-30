@@ -1,4 +1,14 @@
-dist
-dev/assets/vendor
+public
+vendor
 node_modules
-src/node_modules
+/resources/js/assets/font-awesome/css/all.min.css
+/resources/js/assets/font-awesome/webfonts
+
+*.php
+composer.json
+composer.lock
+package.json
+package-lock.json
+.styleci.yml
+README.md
+SECURITY.md
