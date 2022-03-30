@@ -1,125 +1,62 @@
-## Installation 
-### Server Requirements
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-- PHP version 7.4.11
-- MySQL version 8.0.21
-- Composer
-- Git
-- NPM
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-### === Change config PHP .int file  ====
-```terminal
+## About Laravel
 
-max_input_time=6000
-max_execution_time=1200
-upload_max_filesize=1G
-memory_limit=1G
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-```
-### 1. Command install 
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-```terminal
-chmod -R 777 storage/
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-composer update
+## Learning Laravel
 
-#install npm
-npm install
-```
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-### 2. Make environment configuration  
-```terminal
-cp .env.example .env
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-cp .env.testing.example .env.testing
+## Laravel Sponsors
 
-```
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### 3. Configuration database connection in .env file
-```terminal
-DB_CONNECTION=mysql
-DB_HOST=localhost
-DB_PORT=3306
-DB_DATABASE=my_db_name
-DB_USERNAME=my_db_user
-DB_PASSWORD=my_password
-```
+### Premium Partners
 
-### 4. Migrate database and seeder
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[Many](https://www.many.co.uk)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- **[DevSquad](https://devsquad.com)**
+- **[Curotec](https://www.curotec.com/)**
+- **[OP.GG](https://op.gg)**
 
-```terminal
-php artisan key:generate
+## Contributing
 
-php artisan jwt:secret
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-php artisan l5-swagger:generate 
+## Code of Conduct
 
-php artisan reload:cache
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-php artisan migrate
+## Security Vulnerabilities
 
-php artisan db:seed
-```
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
+## License
 
-### 5. Run project in localhost
-
-```terminal
-npm run prod
-php artisan queue:w --timeout=0
-```
-
-### 6. Run test
-```terminal
-Before Unit test, setting enviroment test
---create file 'database.sqlite' in folder database
-
--For FE test
-npm run test
-
-After running the test, please refresh the DB to avoid heavy test data file and recreate the account. Because after each test run the user table will lose data.
-
-command to fresh test DB: php artisan migrate:fresh --seed --env=testing 
-
--run all file Unit Test
-php artisan migrate:fresh --seed --env=testing 
-php artisan test --testsuite=Unit --env=testing 
-
--run all file Feature
-php artisan migrate:fresh --seed --env=testing 
-php artisan test --testsuite=Feature --env=testing
-
--run all file 
-php artisan migrate:fresh --seed --env=testing 
-php artisan test --env=testing
-
-#install dusk test
-php artisan dusk:install
-
-# run test dusk
-run test scenario 
--run all file
-php artisan dusk tests/Browser/scenario
--run one file
-php artisan dusk tests/Browser/scenario/ + file name
-Example:php artisan dusk tests/Browser/scenario/Scenario1Test.php
-
-
-### 7. Additional settings for the environment on the server
-
-```terminal
-#install pm2 
-npm i -g pm2
-
-#start service
-pm2 start queue-worker.yml
-
-# config auto start if reboot server
-pm2 startup
-pm2 save
-
-```
-
-```Show multi language
-http://localhost:8000?lang=1
-```
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

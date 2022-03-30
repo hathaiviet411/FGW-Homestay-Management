@@ -13,20 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'public'),
-
-    /*
-    |--------------------------------------------------------------------------
-    | Default Cloud Filesystem Disk
-    |--------------------------------------------------------------------------
-    |
-    | Many applications store files both locally and in the cloud. For this
-    | reason, you may specify a default "cloud" driver here. This driver
-    | will be bound as the Cloud disk implementation in the container.
-    |
-    */
-
-    'cloud' => env('FILESYSTEM_CLOUD', 's3'),
+    'default' => env('FILESYSTEM_DRIVER', 'local'),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,18 +42,6 @@ return [
             'visibility' => 'public',
         ],
 
-        'providers' => [
-            'driver' => 'local',
-            'root' => base_path('app/Providers'),
-            'visibility' => 'public',
-        ],
-
-        'database' => [
-            'driver' => 'local',
-            'root' => base_path('database'),
-            'visibility' => 'public',
-        ],
-
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -76,10 +51,7 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
         ],
-        'test' => [
-            'driver' => 'local',
-            'root' => storage_path('framework/testing/disks'),
-        ]
+
     ],
 
     /*
