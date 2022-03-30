@@ -1,12 +1,12 @@
 <?php
 /**
- * Created by TienNamNguyen.
- * User: namnt
+ * Created by VeHo.
  * Year: DummyDate
  */
 
 namespace DummyNamespace;
 
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -26,4 +26,15 @@ class DummyClass extends Model
         'data' => 'array'
     ];
 
+    //implement the attribute
+    protected $appends = array('custom_filed');
+    public function getCustomFiledAttribute()
+    {
+        return '';
+    }
+
+    protected function serializeDate(DateTimeInterface $date)
+    {
+        return $date->format('Y-m-d H:i:s');
+    }
 }

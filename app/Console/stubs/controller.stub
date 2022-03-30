@@ -1,7 +1,6 @@
 <?php
 /**
- * Created by TienNamNguyen.
- * User: namnt
+ * Created by VeHo.
  * Year: DummyDate
  */
 
@@ -17,21 +16,21 @@ use Illuminate\Http\Request;
 class DummyClass extends Controller
 {
 
-     /**
+    /**
      * var Repository
      */
-    protected $service;
+    protected $repository;
 
-    public function __construct(DummyNameServiceInterface $service)
+    public function __construct(DummyNameRepositoryInterface $repository)
     {
-        $this->service = $service;
+        $this->repository = $repository;
     }
 
     /**
      * @OA\Get(
-     *   path="/api/DummyRoute",
+     *   path="/api/RouteDummyApi",
      *   tags={"DummyName"},
-     *   summary="List DummyRoute",
+     *   summary="List DummyName",
      *   operationId="DummyRoute_index",
      *   @OA\Response(
      *     response=200,
@@ -77,9 +76,9 @@ class DummyClass extends Controller
 
     /**
      * @OA\Post(
-     *   path="/api/DummyRoute",
+     *   path="/api/RouteDummyApi",
      *   tags={"DummyName"},
-     *   summary="Add new DummyRoute",
+     *   summary="Add new DummyName",
      *   operationId="DummyRoute_create",
      *   @OA\Parameter(name="name", in="query", required=true,
      *     @OA\Schema(type="string"),
@@ -93,7 +92,7 @@ class DummyClass extends Controller
      *      example={"code":200,"data":{"id": 1,"name": "......"}}
      *     )
      *   ),
-     *   security={},
+     *   security={{"auth": {}}},
      * )
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
@@ -110,7 +109,7 @@ class DummyClass extends Controller
 
     /**
      * @OA\Get(
-     *   path="/api/DummyRoute/{id}",
+     *   path="/api/RouteDummyApi/{id}",
      *   tags={"DummyName"},
      *   summary="Detail DummyName",
      *   operationId="DummyRoute_show",
@@ -155,8 +154,8 @@ class DummyClass extends Controller
     }
 
     /**
-     * @OA\Put(
-     *   path="/api/DummyRoute/{id}",
+     * @OA\Post(
+     *   path="/api/RouteDummyApi/{id}",
      *   tags={"DummyName"},
      *   summary="Update DummyName",
      *   operationId="DummyRoute_update",
@@ -212,7 +211,7 @@ class DummyClass extends Controller
 
     /**
      * @OA\Delete(
-     *   path="/api/DummyRoute/{id}",
+     *   path="/api/RouteDummyApi/{id}",
      *   tags={"DummyName"},
      *   summary="Delete DummyName",
      *   operationId="DummyRoute_delete",

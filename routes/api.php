@@ -1,8 +1,5 @@
 <?php
-
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +11,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
+
+    Route::group(['prefix' => 'auth'], function () {
+        Route::post('login', 'AuthController@login');
+        Route::post('register', 'AuthController@register');
+
+    });
+    Route::group(['middleware' => 'api'], function () {
+        Route::group(['prefix' => 'auth'], function () {
+            Route::post('refresh', 'AuthController@refresh');
+        });
+        Route::get('profile', 'AuthController@getProfile');
+        Route::apiResource('user', 'UserController');
+    });
+
+    Route::post('receive-vehicles-data', "CloudController@store");
+
+    Route::apiResource('user', "UserController");
+    Route::apiResource('role', 'RoleController');
+    Route::apiResource('department', 'DepartmentController');
+
+
+    Route::get('system-config/list-status-and-type', "SystemConfigController@listStatusAndType");
+    Route::get('system-config/year-conf', 'SystemConfigController@yearConf');
 });
+

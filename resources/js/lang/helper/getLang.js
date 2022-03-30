@@ -1,16 +1,17 @@
 import Cookies from 'js-cookie';
-import ConstCookie from '@/const/cookie';
+
+const LOCAL = 'local';
 
 /**
  * Function get Current Language in Cookies
  * @returns Current Language (String)
  */
 export function getLanguage() {
-	const chooseLanguage = Cookies.get(ConstCookie['LANGUAGE']);
+    const chooseLanguage = Cookies.get('language');
 
-	if (chooseLanguage) {
-		return chooseLanguage;
-	}
+    if (chooseLanguage) {
+        return chooseLanguage;
+    }
 
-	return process.env.MIX_LARAVEL_LANG || 'en';
+    return process.env.MIX_APP_ENV === LOCAL ? 'en' : process.env.MIX_LARAVEL_LANG;
 }
