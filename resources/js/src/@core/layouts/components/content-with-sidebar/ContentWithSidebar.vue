@@ -1,22 +1,22 @@
 <template>
-  <div class="cws-container cws-sidebar-right">
+	<div class="cws-container cws-sidebar-right">
 
-    <!-- content -->
-    <div class="cws-content">
-      <slot />
-    </div>
+		<!-- content -->
+		<div class="cws-content">
+			<slot />
+		</div>
 
-    <!-- Sidebar -->
-    <div class="cws-sidebar">
-      <slot name="sidebar" />
-    </div>
-  </div>
+		<!-- Sidebar -->
+		<div class="cws-sidebar">
+			<slot name="sidebar" />
+		</div>
+	</div>
 </template>
 
 <script>
 export default {
 
-}
+};
 </script>
 
 <style lang="scss">

@@ -1,122 +1,122 @@
-import { $themeColors } from '@themeConfig'
+import { $themeColors } from '@themeConfig';
 
 export const areaChartOptions = {
-  grid: {
-    show: false,
-    padding: {
-      left: 0,
-      right: 0,
+    grid: {
+        show: false,
+        padding: {
+            left: 0,
+            right: 0,
+        },
     },
-  },
-  chart: {
-    toolbar: {
-      show: false,
+    chart: {
+        toolbar: {
+            show: false,
+        },
+        sparkline: {
+            enabled: true,
+        },
     },
-    sparkline: {
-      enabled: true,
+    dataLabels: {
+        enabled: false,
     },
-  },
-  dataLabels: {
-    enabled: false,
-  },
-  stroke: {
-    curve: 'smooth',
-    width: 2.5,
-  },
-  fill: {
-    type: 'gradient',
-    gradient: {
-      shadeIntensity: 0.9,
-      opacityFrom: 0.5,
-      opacityTo: 0.2,
-      stops: [0, 80, 100],
+    stroke: {
+        curve: 'smooth',
+        width: 2.5,
     },
-  },
-  xaxis: {
-    type: 'numeric',
-    lines: {
-      show: false,
+    fill: {
+        type: 'gradient',
+        gradient: {
+            shadeIntensity: 0.9,
+            opacityFrom: 0.5,
+            opacityTo: 0.2,
+            stops: [0, 80, 100],
+        },
     },
-    axisBorder: {
-      show: false,
+    xaxis: {
+        type: 'numeric',
+        lines: {
+            show: false,
+        },
+        axisBorder: {
+            show: false,
+        },
+        labels: { show: false },
     },
-    labels: { show: false },
-  },
-  yaxis: [
-    {
-      y: 0,
-      offsetX: 0,
-      offsetY: 0,
-      padding: {
-        left: 0,
-        right: 0,
-      },
+    yaxis: [
+        {
+            y: 0,
+            offsetX: 0,
+            offsetY: 0,
+            padding: {
+                left: 0,
+                right: 0,
+            },
+        },
+    ],
+    tooltip: {
+        x: { show: false },
     },
-  ],
-  tooltip: {
-    x: { show: false },
-  },
-  theme: {
-    monochrome: {
-      enabled: true,
-      color: $themeColors.primary,
-      shadeTo: 'light',
-      shadeIntensity: 0.65,
+    theme: {
+        monochrome: {
+            enabled: true,
+            color: $themeColors.primary,
+            shadeTo: 'light',
+            shadeIntensity: 0.65,
+        },
     },
-  },
-}
+};
 
 export const lineChartOptions = {
-  grid: {
-    show: false,
-    padding: {
-      left: 0,
-      right: 0,
+    grid: {
+        show: false,
+        padding: {
+            left: 0,
+            right: 0,
+        },
     },
-  },
-  chart: {
-    type: 'line',
-    dropShadow: {
-      enabled: true,
-      top: 5,
-      left: 0,
-      blur: 4,
-      opacity: 0.1,
+    chart: {
+        type: 'line',
+        dropShadow: {
+            enabled: true,
+            top: 5,
+            left: 0,
+            blur: 4,
+            opacity: 0.1,
+        },
+        toolbar: {
+            show: false,
+        },
+        sparkline: {
+            enabled: true,
+        },
     },
-    toolbar: {
-      show: false,
+    stroke: {
+        width: 5,
+        curve: 'smooth',
     },
-    sparkline: {
-      enabled: true,
+    xaxis: {
+        type: 'numeric',
     },
-  },
-  stroke: {
-    width: 5,
-    curve: 'smooth',
-  },
-  xaxis: {
-    type: 'numeric',
-  },
-  colors: [$themeColors.primary],
-  fill: {
-    type: 'gradient',
-    gradient: {
-      shade: 'dark',
-      gradientToColors: ['#A9A2F6'],
-      shadeIntensity: 1,
-      type: 'horizontal',
-      opacityFrom: 1,
-      opacityTo: 1,
-      stops: [0, 100, 100, 100],
+    colors: [$themeColors.primary],
+    fill: {
+        type: 'gradient',
+        gradient: {
+            shade: 'dark',
+            gradientToColors: ['#A9A2F6'],
+            shadeIntensity: 1,
+            type: 'horizontal',
+            opacityFrom: 1,
+            opacityTo: 1,
+            stops: [0, 100, 100, 100],
+        },
     },
-  },
-  markers: {
-    size: 0,
-    hover: {
-      size: 5,
+    markers: {
+        size: 0,
+        hover: {
+            size: 5,
+        },
     },
-  },
-  tooltip: {
-    x: { show: false },
-  },
-}
+    tooltip: {
+        x: { show: false },
+    },
+};

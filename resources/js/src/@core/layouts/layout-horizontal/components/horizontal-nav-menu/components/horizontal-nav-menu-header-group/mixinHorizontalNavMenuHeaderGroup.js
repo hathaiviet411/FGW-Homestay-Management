@@ -1,10 +1,10 @@
 export default {
-  watch: {
-    $route: {
-      immediate: true,
-      handler() {
-        this.updateIsActive()
-      },
+    watch: {
+        $route: {
+            immediate: true,
+            handler() {
+                this.updateIsActive();
+            },
+        },
     },
-  },
-}
+};

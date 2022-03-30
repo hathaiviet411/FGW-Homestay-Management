@@ -1,106 +1,106 @@
 <template>
-  <b-card
-    v-bind="cardAttrs"
-    no-body
-    v-on="$listeners"
-  >
-    <div class="card-header">
-      <!-- Title & SubTitle -->
-      <div>
-        <b-card-title>{{ $attrs.title }}</b-card-title>
-        <b-card-sub-title v-if="$attrs['sub-title']">
-          {{ $attrs['sub-title'] }}
-        </b-card-sub-title>
-      </div>
+	<b-card
+		v-bind="cardAttrs"
+		no-body
+		v-on="$listeners"
+	>
+		<div class="card-header">
+			<!-- Title & SubTitle -->
+			<div>
+				<b-card-title>{{ $attrs.title }}</b-card-title>
+				<b-card-sub-title v-if="$attrs['sub-title']">
+					{{ $attrs['sub-title'] }}
+				</b-card-sub-title>
+			</div>
 
-      <i
-        class="code-toggler feather icon-code cursor-pointer"
-        :aria-expanded="!code_visible ? 'true' : 'false'"
-        :aria-controls="parentID"
-        @click="code_visible = !code_visible"
-      />
-    </div>
+			<i
+				class="code-toggler feather icon-code cursor-pointer"
+				:aria-expanded="!code_visible ? 'true' : 'false'"
+				:aria-controls="parentID"
+				@click="code_visible = !code_visible"
+			/>
+		</div>
 
-    <template v-if="$attrs['no-body'] !== undefined">
-      <slot />
+		<template v-if="$attrs['no-body'] !== undefined">
+			<slot />
 
-      <!-- Code Content -->
-      <b-collapse
-        :id="parentID"
-        v-model="code_visible"
-        class="card-code"
-        :visible="code_visible"
-      >
-        <b-card-body>
-          <prism :language="codeLanguage">
-            <slot name="code" />
-          </prism>
-        </b-card-body>
-      </b-collapse>
-    </template>
+			<!-- Code Content -->
+			<b-collapse
+				:id="parentID"
+				v-model="code_visible"
+				class="card-code"
+				:visible="code_visible"
+			>
+				<b-card-body>
+					<prism :language="codeLanguage">
+						<slot name="code" />
+					</prism>
+				</b-card-body>
+			</b-collapse>
+		</template>
 
-    <b-card-body v-else>
-      <!-- Card Content -->
-      <slot />
+		<b-card-body v-else>
+			<!-- Card Content -->
+			<slot />
 
-      <!-- Code Content -->
-      <b-collapse
-        :id="parentID"
-        v-model="code_visible"
-        class="card-code"
-        :visible="code_visible"
-      >
-        <div class="p-1" />
-        <prism :language="codeLanguage">
-          <slot name="code" />
-        </prism>
-      </b-collapse>
-    </b-card-body>
-  </b-card>
+			<!-- Code Content -->
+			<b-collapse
+				:id="parentID"
+				v-model="code_visible"
+				class="card-code"
+				:visible="code_visible"
+			>
+				<div class="p-1" />
+				<prism :language="codeLanguage">
+					<slot name="code" />
+				</prism>
+			</b-collapse>
+		</b-card-body>
+	</b-card>
 </template>
 
 <script>
 import {
-  BCard, BCardTitle, BCardSubTitle, BCardBody, BCollapse,
-} from 'bootstrap-vue'
-import 'prismjs'
-import 'prismjs/themes/prism-tomorrow.css'
-import Prism from 'vue-prism-component'
+    BCard, BCardTitle, BCardSubTitle, BCardBody, BCollapse,
+} from 'bootstrap-vue';
+import 'prismjs';
+import 'prismjs/themes/prism-tomorrow.css';
+import Prism from 'vue-prism-component';
 
 export default {
-  components: {
-    BCard,
-    BCardTitle,
-    BCardSubTitle,
-    BCardBody,
-    BCollapse,
-    Prism,
-  },
-  inheritAttrs: false,
-  props: {
-    codeLanguage: {
-      default: 'markup',
-      type: String,
+    components: {
+        BCard,
+        BCardTitle,
+        BCardSubTitle,
+        BCardBody,
+        BCollapse,
+        Prism,
     },
-  },
-  data() {
-    return {
-      parentID: '',
-      code_visible: false,
-    }
-  },
-  computed: {
-    cardAttrs() {
-      const cardAttrs = JSON.parse(JSON.stringify(this.$attrs))
-      delete cardAttrs.title
-      delete cardAttrs['sub-title']
-      return cardAttrs
+    inheritAttrs: false,
+    props: {
+        codeLanguage: {
+            default: 'markup',
+            type: String,
+        },
     },
-  },
-  created() {
-    this.parentID = String(Math.floor(Math.random() * 10) + 1)
-  },
-}
+    data() {
+        return {
+            parentID: '',
+            code_visible: false,
+        };
+    },
+    computed: {
+        cardAttrs() {
+            const cardAttrs = JSON.parse(JSON.stringify(this.$attrs));
+            delete cardAttrs.title;
+            delete cardAttrs['sub-title'];
+            return cardAttrs;
+        },
+    },
+    created() {
+        this.parentID = String(Math.floor(Math.random() * 10) + 1);
+    },
+};
 </script>
 
 <style lang="scss" scoped>

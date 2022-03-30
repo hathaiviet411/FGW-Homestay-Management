@@ -1,15 +1,15 @@
 <template>
-  <ul
-    v-bind="$attrs"
-    class="app-timeline"
-    v-on="$listeners"
-  >
-    <slot />
-  </ul>
+	<ul
+		v-bind="$attrs"
+		class="app-timeline"
+		v-on="$listeners"
+	>
+		<slot />
+	</ul>
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
 
 <style lang="scss" scoped>
