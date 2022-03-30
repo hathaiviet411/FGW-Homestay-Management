@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+
 class CreateUsersTable extends Migration
 {
     /**
@@ -14,16 +15,12 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('department_id')->unsigned();
             $table->string('name');
             $table->string('email')->unique();
-            $table->date('birth')->format('Y-m-d');
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
-
-            $table->foreign('department_id')->references('id')->on('departments')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
         });
     }
 

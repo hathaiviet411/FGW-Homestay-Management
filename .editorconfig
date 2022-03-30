@@ -13,5 +13,6 @@ trim_trailing_whitespace = false
 
 [*.{yml,yaml}]
 indent_size = 2
-[*.{php,js,vue}]
+
+[docker-compose.yml]
 indent_size = 4
