@@ -5,12 +5,10 @@
   flex-basis: 100%;
   align-items: center;
 
-  // common style for both v1 and v2
   a {
     text-decoration: unset;
   }
 
-  // auth v1
   &.auth-v1 {
     align-items: center;
     justify-content: center;
@@ -35,7 +33,6 @@
       right: 0;
     }
 
-    // auth card
     .auth-inner {
       width: 28rem;
       z-index: 1;

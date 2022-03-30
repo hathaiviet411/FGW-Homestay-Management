@@ -6,55 +6,55 @@ Vue.use(VueRouter);
 const routes = [
     {
         path: '/',
-        redirect: 'dashboard',
+        redirect: 'login',
     },
-    {
-        path: '/dashboard',
-        name: 'dashboard',
-        component: () => import('@/views/dashboard/Dashboard.vue'),
-    },
+    // {
+    //     path: '/dashboard',
+    //     name: 'dashboard',
+    //     component: () => import('@/pages/dashboard/Dashboard.vue'),
+    // },
     {
         path: '/typography',
         name: 'typography',
-        component: () => import('@/views/typography/Typography.vue'),
+        component: () => import('@/pages/typography/Typography.vue'),
     },
     {
         path: '/icons',
         name: 'icons',
-        component: () => import('@/views/icons/Icons.vue'),
+        component: () => import('@/pages/icons/Icons.vue'),
     },
     {
         path: '/cards',
         name: 'cards',
-        component: () => import('@/views/cards/Card.vue'),
+        component: () => import('@/pages/cards/Card.vue'),
     },
     {
         path: '/simple-table',
         name: 'simple-table',
-        component: () => import('@/views/simple-table/SimpleTable.vue'),
+        component: () => import('@/pages/simple-table/SimpleTable.vue'),
     },
     {
         path: '/form-layouts',
         name: 'form-layouts',
-        component: () => import('@/views/form-layouts/FormLayouts.vue'),
+        component: () => import('@/pages/form-layouts/FormLayouts.vue'),
     },
     {
-        path: '/pages/account-settings',
+        path: '/account-settings',
         name: 'pages-account-settings',
-        component: () => import('@/views/pages/account-settings/AccountSettings.vue'),
+        component: () => import('@/pages/account-settings/AccountSettings.vue'),
     },
     {
-        path: '/pages/login',
+        path: '/login',
         name: 'pages-login',
-        component: () => import('@/views/pages/Login.vue'),
+        component: () => import('@/pages/login/Login.vue'),
         meta: {
             layout: 'blank',
         },
     },
     {
-        path: '/pages/register',
+        path: '/register',
         name: 'pages-register',
-        component: () => import('@/views/pages/Register.vue'),
+        component: () => import('@/pages/register/Register.vue'),
         meta: {
             layout: 'blank',
         },
@@ -62,7 +62,7 @@ const routes = [
     {
         path: '/error-404',
         name: 'error-404',
-        component: () => import('@/views/Error.vue'),
+        component: () => import('@/pages/error/Error.vue'),
         meta: {
             layout: 'blank',
         },
