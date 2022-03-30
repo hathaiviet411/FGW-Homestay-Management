@@ -4,10 +4,11 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import Login from './modules/login';
-import errorRoute from './modules/error';
+import Error404 from './modules/error-404';
 
 export const constantRoutes = [
 	Login,
+	Error404,
 	{
 		path: '*',
 		hidden: true,
@@ -19,7 +20,8 @@ export const asyncRoutes = [];
 
 const createRouter = () =>
 	new VueRouter({
-		scrollBehavior: () => ({ y: 0 }),
+		mode: 'history',
+		scrollBehavior: () => ({ x: 0, y: 0 }),
 		routes: constantRoutes
 	});
 
