@@ -10,10 +10,12 @@ namespace Repository;
 
 use App\Repositories\Contracts\BaseRepositoryInterface;
 use Helper\Common;
+use Helper\ResponseService;
 use Illuminate\Foundation\Application;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Storage;
+
 abstract class BaseRepository implements BaseRepositoryInterface
 {
     /**
@@ -718,6 +720,24 @@ abstract class BaseRepository implements BaseRepositoryInterface
             }
         }
         return null;
+    }
+
+
+    public function responseJson(int $code = null, $data = null, $message = null, $internalMessage = null)
+    {
+        return ResponseService::responseJson($code, $data, $message, $internalMessage);
+    }
+
+    /**
+     * @param int|null $code
+     * @param null $message
+     * @param null $internalMessage
+     * @param null $dataError
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function responseJsonError(int $code = null, $message = null, $internalMessage = null, $dataError = null)
+    {
+        return ResponseService::responseJsonError($code, $message, $internalMessage, $dataError);
     }
 
 

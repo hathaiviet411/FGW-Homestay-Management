@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use Helper\ResponseService;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Pagination\LengthAwarePaginator;
+
 class BaseResource extends JsonResource
 {
     /**

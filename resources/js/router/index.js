@@ -3,31 +3,39 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-import Login from './modules/login';
-import errorRoute from './modules/error';
+// Import modules router
+import login from './modules/login';
+import incomeStatement from './modules/incomeStatement';
+import importData from './modules/importData';
+import masterManagement from './modules/masterManagement';
+import dev from './modules/dev';
 
 export const constantRoutes = [
-	Login,
-	errorRoute,
-	{
-		path: '*',
-		redirect: { name: 'PageNotFound' }
-	}
+    {
+        path: '/',
+        redirect: { name: 'Dev' },
+        hidden: true,
+    },
+    login,
+    dev,
+    incomeStatement,
+    importData,
+    masterManagement,
 ];
 
 export const asyncRoutes = [];
 
-const createRouter = () =>
-	new VueRouter({
-		scrollBehavior: () => ({ y: 0 }),
-		routes: constantRoutes
-	});
+const createRouter = () => new VueRouter({
+    scrollBehavior: () => ({ y: 0 }),
+    routes: constantRoutes,
+});
 
 const router = createRouter();
 
 export function resetRouter() {
-	const newRouter = createRouter();
-	router.matcher = newRouter.matcher;
+    const newRouter = createRouter();
+    router.matcher = newRouter.matcher;
 }
 
 export default router;
+
