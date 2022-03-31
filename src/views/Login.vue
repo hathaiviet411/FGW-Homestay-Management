@@ -6,7 +6,7 @@
 			<b-link class="brand-logo">
 				<vuexy-logo />
 				<h2 class="brand-text text-primary ml-1">
-					Vuexy
+					HIMS
 				</h2>
 			</b-link>
 			<!-- /Brand logo-->
@@ -19,8 +19,8 @@
 				<div class="w-100 d-lg-flex align-items-center justify-content-center px-5">
 					<b-img
 						fluid
-						:src="imgUrl"
-						alt="Login V2"
+						:src="sideImg"
+						alt="login-logo"
 					/>
 				</div>
 			</b-col>
@@ -41,44 +41,42 @@
 						title-tag="h2"
 						class="font-weight-bold mb-1"
 					>
-						Welcome to Vuexy! 👋
+						Welcome to HIMS! 👋
 					</b-card-title>
 					<b-card-text class="mb-2">
-						Please sign-in to your account and start the adventure
+						Please sign-in to your account to continue
 					</b-card-text>
 
-					<!-- form -->
+					<!-- Form Input -->
 					<validation-observer ref="loginValidation">
 						<b-form
 							class="auth-login-form mt-2"
 							@submit.prevent
 						>
-							<!-- email -->
+							<!-- User ID -->
 							<b-form-group
-								label="Email"
-								label-for="login-email"
+								label="User ID"
 							>
 								<validation-provider
 									#default="{ errors }"
-									name="Email"
-									rules="required|email"
+									name="User ID"
+									rules="required"
 								>
 									<b-form-input
-										id="login-email"
-										v-model="userEmail"
-										:state="errors.length > 0 ? false:null"
-										name="login-email"
-										placeholder="john@example.com"
+										v-model="Account.user_id"
+										:onkeydown="numberInputOnly()"
+										placeholder="123456"
+										:class="errors.length > 0 ? 'is-invalid' : null"
 									/>
 									<small class="text-danger">{{ errors[0] }}</small>
 								</validation-provider>
 							</b-form-group>
 
-							<!-- forgot password -->
+							<!-- Forgot Password -->
 							<b-form-group>
 								<div class="d-flex justify-content-between">
 									<label for="login-password">Password</label>
-									<b-link :to="{name:'auth-forgot-password-v2'}">
+									<b-link to="/">
 										<small>Forgot Password?</small>
 									</b-link>
 								</div>
@@ -89,15 +87,11 @@
 								>
 									<b-input-group
 										class="input-group-merge"
-										:class="errors.length > 0 ? 'is-invalid':null"
 									>
 										<b-form-input
-											id="login-password"
 											v-model="password"
-											:state="errors.length > 0 ? false:null"
-											class="form-control-merge"
+											:class="['form-control-merge', errors.length > 0 ? 'is-invalid' : null]"
 											:type="passwordFieldType"
-											name="login-password"
 											placeholder="············"
 										/>
 										<b-input-group-append is-text>
@@ -112,18 +106,17 @@
 								</validation-provider>
 							</b-form-group>
 
-							<!-- checkbox -->
+							<!-- Checkbox -->
 							<b-form-group>
 								<b-form-checkbox
 									id="remember-me"
 									v-model="status"
-									name="checkbox-1"
 								>
 									Remember Me
 								</b-form-checkbox>
 							</b-form-group>
 
-							<!-- submit buttons -->
+							<!-- Submit buttons -->
 							<b-button
 								type="submit"
 								variant="primary"
@@ -136,46 +129,28 @@
 					</validation-observer>
 
 					<b-card-text class="text-center mt-2">
-						<span>New on our platform? </span>
-						<b-link :to="{name:'page-auth-register-v2'}">
-							<span>&nbsp;Create an account</span>
+						<span>Accounts are only created from HIMS's internal system.</span>
+					</b-card-text>
+
+					<b-card-text class="text-center mt-2">
+						<span>If you do not have an account, please contact with you</span>
+						<b-link to="/">
+							<span>&nbsp;Manager</span>
 						</b-link>
 					</b-card-text>
 
-					<!-- divider -->
+					<!-- Divider -->
 					<div class="divider my-2">
 						<div class="divider-text">
 							or
 						</div>
 					</div>
 
-					<!-- social buttons -->
-					<div class="auth-footer-btn d-flex justify-content-center">
-						<b-button
-							variant="facebook"
-							href="javascript:void(0)"
-						>
-							<feather-icon icon="FacebookIcon" />
-						</b-button>
-						<b-button
-							variant="twitter"
-							href="javascript:void(0)"
-						>
-							<feather-icon icon="TwitterIcon" />
-						</b-button>
-						<b-button
-							variant="google"
-							href="javascript:void(0)"
-						>
-							<feather-icon icon="MailIcon" />
-						</b-button>
-						<b-button
-							variant="github"
-							href="javascript:void(0)"
-						>
-							<feather-icon icon="GithubIcon" />
-						</b-button>
-					</div>
+					<b-card-text class="text-center mt-2">
+						<b-link to="/">
+							<span>&nbsp;HR Headquarter</span>
+						</b-link>
+					</b-card-text>
 				</b-col>
 			</b-col>
 			<!-- /Login-->
@@ -184,32 +159,15 @@
 </template>
 
 <script>
-/* eslint-disable global-require */
 import { ValidationProvider, ValidationObserver } from 'vee-validate';
 import VuexyLogo from '@core/layouts/components/Logo.vue';
-import {
-    BRow, BCol, BLink, BFormGroup, BFormInput, BInputGroupAppend, BInputGroup, BFormCheckbox, BCardText, BCardTitle, BImg, BForm, BButton,
-} from 'bootstrap-vue';
-import { required, email } from '@validations';
+import { required } from '@validations';
 import { togglePasswordVisibility } from '@core/mixins/ui/forms';
-import store from '@/store/index';
+import { numberInputOnly } from '@/utils/number-input-only';
 import ToastificationContent from '@core/components/toastification/ToastificationContent.vue';
 
 export default {
     components: {
-        BRow,
-        BCol,
-        BLink,
-        BFormGroup,
-        BFormInput,
-        BInputGroupAppend,
-        BInputGroup,
-        BFormCheckbox,
-        BCardText,
-        BCardTitle,
-        BImg,
-        BForm,
-        BButton,
         VuexyLogo,
         ValidationProvider,
         ValidationObserver,
@@ -217,26 +175,21 @@ export default {
     mixins: [togglePasswordVisibility],
     data() {
         return {
+            numberInputOnly: numberInputOnly,
             status: '',
-            password: '',
-            userEmail: '',
+
+            Account: {
+                user_id: '',
+                password: '',
+            },
+
             sideImg: require('@/assets/images/pages/login-v2.svg'),
-            // validation rulesimport store from '@/store/index'
             required,
-            email,
         };
     },
     computed: {
         passwordToggleIcon() {
             return this.passwordFieldType === 'password' ? 'EyeIcon' : 'EyeOffIcon';
-        },
-        imgUrl() {
-            if (store.state.appConfig.layout.skin === 'dark') {
-                // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-                this.sideImg = require('@/assets/images/pages/login-v2-dark.svg');
-                return this.sideImg;
-            }
-            return this.sideImg;
         },
     },
     methods: {
