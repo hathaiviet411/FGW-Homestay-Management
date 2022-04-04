@@ -10,7 +10,7 @@ export default {
     created() {
         console.log(
             '%cHomestay Internal Management System',
-            'font-size: 20px; padding: 5px 10px 5px 10px; border-radius: .25rem; color: #04AA6D; background-color: #282A35; text-align: center;'
+            'font-size: 20px; padding: 5px 10px 5px 10px; border-radius: .25rem; color: rgb(255, 209, 84); background-color: rgb(0, 39, 149); text-align: center;'
         );
     },
     mounted() {

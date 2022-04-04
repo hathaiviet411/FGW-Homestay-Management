@@ -42,7 +42,9 @@
         }
 
 		.dropdown-toggle {
-			background-color: $golden-tainoi;
+			background-color: $smalt;
+      color: $golden-tainoi;
+      font-weight: bold;
 			min-width: 160px;
 		}
 

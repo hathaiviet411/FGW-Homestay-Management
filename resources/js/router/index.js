@@ -5,10 +5,10 @@ Vue.use(VueRouter);
 
 // Import modules router
 import login from './modules/login';
-// import incomeStatement from './modules/incomeStatement';
-// import importData from './modules/importData';
-// import masterManagement from './modules/masterManagement';
+import timesheet from './modules/timesheet';
+import facilityManagement from './modules/facilityManagement';
 import staffManagement from './modules/staffManagement';
+import departmentManagement from './modules/departmentManagement';
 import dev from './modules/dev';
 
 export const constantRoutes = [
@@ -19,10 +19,10 @@ export const constantRoutes = [
     },
     login,
     dev,
-    // incomeStatement,
-    // importData,
-    // masterManagement,
+    timesheet,
+    facilityManagement,
     staffManagement,
+    departmentManagement,
 ];
 
 export const asyncRoutes = [];
