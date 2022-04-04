@@ -1,176 +1,125 @@
-<p align="center"></p>
+## Installation 
+### Server Requirements
 
-<p align="center">
-   <a href="https://themeselection.com/products/materio-free-vuetify-vuejs-admin-template" target="_blank">
-      <img src="https://github.com/themeselection/materio-vuetify-vuejs-admin-template-free/blob/main/src/assets/images/logos/logo.svg" alt="materio-logo" width="60px" height="auto">
-   </a>
-</p>
+- PHP version 7.4.11
+- MySQL version 8.0.21
+- Composer
+- Git
+- NPM
 
-<h1 align="center">
-   <a href="https://themeselection.com/products/materio-free-vuetify-vuejs-admin-template" target="_blank" align="center">
-      Materio - Vuetify VueJS Free Admin Template
-   </a>
-</h1>
+### === Change config PHP .int file  ====
+```terminal
 
-<p align="center">Production ready carefully crafted most comprehensive admin template</p>
+max_input_time=6000
+max_execution_time=1200
+upload_max_filesize=1G
+memory_limit=1G
 
-<p align="center">
-   <a href="https://github.com/themeselection/materio-vuetify-vuejs-admin-template-free/blob/main/LICENSE">
-      <img src="https://img.shields.io/github/license/themeselection/materio-vuetify-vuejs-admin-template-free" alt="license">
-   </a>
-   <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/themeselection/materio-vuetify-vuejs-admin-template-free/Deploy">
-   <a href="https://github.com/themeselection/materio-vuetify-vuejs-admin-template-free/releases">
-    <img src="https://img.shields.io/github/release/themeselection/materio-vuetify-vuejs-admin-template-free.svg" alt="GitHub release">
-  </a>
-   <a href="https://twitter.com/Theme_Selection" target="_blank">
-      <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/Theme_Selection">
-   </a>
-</p>
+```
+### 1. Command install 
 
-<kbd>[![Materio - Vuetify VueJS Free Admin Template Demo Screenshot](https://user-images.githubusercontent.com/47495003/129342383-2816d6fe-3a88-4189-b08f-f30b9abac2b0.png)](https://themeselection.com/products/materio-free-vuetify-vuejs-admin-template)</kbd>
+```terminal
+chmod -R 777 storage/
 
-## Introduction
+composer update
 
-If you’re a developer looking for an admin dashboard that is developer-friendly, rich with features, and highly customizable look no further than Materio. We’ve followed the highest industry standards to bring you one of the very best **[VueJS Admin Templates](https://themeselection.com/products/category/vuejs-admin-templates/)** that is not only fast and easy to use but highly scalable. Offering ultimate convenience and flexibility, you’ll be able to build whatever application you want with very little hassle.
+#install npm
+npm install
+```
 
-Build premium quality applications with ease. Use our innovative admin template to create eye-catching, high-quality, and high-performing single-page applications. Your apps will be completely responsive, ensuring they’ll look stunning and function flawlessly on desktops, tablets, and mobile devices.
+### 2. Make environment configuration  
+```terminal
+cp .env.example .env
 
-[View Demo](https://themeselection.com/demo/materio-vuetify-vuejs-admin-template-free/demo/)
+cp .env.testing.example .env.testing
 
-## Installation ⚒️
+```
 
-> We recommend you use yarn
+### 3. Configuration database connection in .env file
+```terminal
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=my_db_name
+DB_USERNAME=my_db_user
+DB_PASSWORD=my_password
+```
 
-1. Install all packages
+### 4. Migrate database and seeder
 
-   ```bash
-   yarn
+```terminal
+php artisan key:generate
 
-   # npm install [for npm]
-   ```
+php artisan jwt:secret
 
-2. Run development server
+php artisan l5-swagger:generate 
 
-   ```bash
-   yarn serve
+php artisan reload:cache
 
-   # npm run serve [for npm]
-   ```
+php artisan migrate
 
-3. Generate build files for deployment
+php artisan db:seed
+```
 
-   ```bash
-   yarn build
 
-   # npm run build [for npm]
-   ```
+### 5. Run project in localhost
 
-## What's Included 📦
+```terminal
+npm run prod
+php artisan queue:w --timeout=0
+```
 
-- Dashboard
-- Account Settings
-- Pages
-  - Login
-  - Register
-  - Error
-- User Interface
-  - Typography
-  - Icons
-  - Basic Cards
-  - Tables
-  - Form Layouts
+### 6. Run test
+```terminal
+Before Unit test, setting enviroment test
+--create file 'database.sqlite' in folder database
 
-## What's in Premium Version 💎
+-For FE test
+npm run test
 
-| Materio Free Version                                                                             | Materio Premium Version                                                                        |
-| ------------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------- |
-| [Demo](https://themeselection.com/demo/materio-vuetify-vuejs-admin-template-free/demo/)          | [Demo](https://themeselection.com/demo/materio-vuetify-vuejs-admin-template/landing)           |
-| [Download](https://themeselection.com/products/materio-free-vuetify-vuejs-admin-template)        | [Purchase](https://themeselection.com/products/materio-vuetify-vuejs-admin-template)           |
-| Single vertical menu                                                                             | Vertical (+ vertical collapsed) & Horizontal menu                                              |
-| Simple Light/Dark theme                                                                          | 3 Skin variants w/ light/dark theme support: Default, Bordered & Semi-dark                     |
-| 1 Simple Dashboard                                                                               | 3 Niche Dashboards                                                                             |
-| -                                                                                                | 5 API ready applications                                                                       |
-| Simple From Elements                                                                             | Advance form elemens, validation & form wizard                                                 |
-| Basic Cards                                                                                      | Basic Cards + Advanced Cards + Statistics Cards                                                |
-| -                                                                                                | API ready JWT Authentication flow                                                              |
-| -                                                                                                | Access Control (even on CRUD operations)                                                       |
-| -                                                                                                | Quick Search - Quickly navigate between pages (w/ hotkey support)                              |
-| Basic Pages                                                                                      | Authentication Pages in 2 variants + Ready to use pages like Pricing, FAQ, Knowledge base, etc |
-| -                                                                                                | 3D Characters + Illustrations                                                                  |
-| Basic tables                                                                                     | Advanced tables                                                                                |
-| Manual customization                                                                             | Quick customization using theme config file                                                    |
-| -                                                                                                | Advanced Charts                                                                                |
-| 1 Chart Library                                                                                  | 2 Chart Libraries                                                                              |
-| -                                                                                                | Multiple Navbar & Menu Options                                                                 |
-| -                                                                                                | Starter-kit                                                                                    |
-| -                                                                                                | Internationalization support in components                                                     |
-| Regular Support                                                                                  | Priority Support                                                                               |
-| Basic Documentation                                                                              | Detailed Documentation                                                                         |
+After running the test, please refresh the DB to avoid heavy test data file and recreate the account. Because after each test run the user table will lose data.
 
-## Documentation 📜
+command to fresh test DB: php artisan migrate:fresh --seed --env=testing 
 
-Check GitHub [Wiki](https://github.com/themeselection/materio-vuetify-vuejs-admin-template-free/wiki) of this repo
+-run all file Unit Test
+php artisan migrate:fresh --seed --env=testing 
+php artisan test --testsuite=Unit --env=testing 
 
-## Browser Support 🖥️
+-run all file Feature
+php artisan migrate:fresh --seed --env=testing 
+php artisan test --testsuite=Feature --env=testing
 
-- Materio Vuetify VueJS Free Admin Template is built to work best in the latest desktop and mobile and tablet browsers
+-run all file 
+php artisan migrate:fresh --seed --env=testing 
+php artisan test --env=testing
 
-- Chrome (latest)
-- FireFox (latest)
-- Safari (latest)
-- Opera (latest)
+#install dusk test
+php artisan dusk:install
 
-## Contributing 🦸
+# run test dusk
+run test scenario 
+-run all file
+php artisan dusk tests/Browser/scenario
+-run one file
+php artisan dusk tests/Browser/scenario/ + file name
+Example:php artisan dusk tests/Browser/scenario/Scenario1Test.php
 
-Contribution are always welcome and recommended! Here is how:
 
-- Fork the repository ([here is the guide](https://docs.github.com/en/get-started/quickstart/fork-a-repo)).
-- Clone to your machine `git clone https://github.com/YOUR_USERNAME/REPO_URL` Make your changes
-- Create a pull request
+### 7. Additional settings for the environment on the server
 
-### Contribution Requirements 🧰
+```terminal
+#install pm2 
+npm i -g pm2
 
-- When you contribute, you agree to give a non-exclusive license to ThemeSelection to use that contribution in any context as we (ThemeSelection) see appropriate.
-- If you use content provided by another party, it must be appropriately licensed using an open source license.
-- Contributions are only accepted through Github pull requests.
-- Finally, contributed code must work in all supported browsers (see above for browser support).
+#start service
+pm2 start queue-worker.yml
 
-## Creators 😇
+# config auto start if reboot server
+pm2 startup
+pm2 save
 
-- [ThemeSelection](https://themeselection.com)
+```
 
-## Changelog 📆
-
-Please refer to the [CHANGELOG](CHANGELOG.md) file. We will add a detailed release notes to each new release.
-
-## Credits 🙏
-
-- [Vuetify](https://vuetifyjs.com/)
-- [Material Design Icons](https://materialdesignicons.com/)
-- [ApexCharts](https://apexcharts.com/)
-- [Humans Illustrations](https://humans.wannathis.one/)
-- [Freepik](https://www.freepik.com/)
-- [Unsplash](https://unsplash.com/)
-
-## NOTE 🏷️
-
-**We request you to keep ThemeSelection credit link in the footer section.**
-
-## Looking For Premium Admin Templates ?? 👀
-
-**[ThemeSelection](https://themeselection.com/)** provides Selected high quality, modern design, professional and easy-to-use Free and Premium [Bootstrap Admin Templates](https://themeselection.com/products/category/bootstrap-admin-templates/), [VueJS Admin Templates](https://themeselection.com/products/category/vuejs-admin-templates/), [Laravel Admin Templates](https://themeselection.com/products/category/laravel-admin-templates/), HTML Themes, and [Free UI Kits](https://themeselection.com/products/category/free-ui-kits/) to create your applications faster!.
-
-If you want to [Download Free Admin Templates](https://themeselection.com/products/category/download-free-admin-templates/) like Materio then do visit [ThemeSelection](https://themeselection.com/).
-
-## Useful Links 🔗
-
-- More products from [ThemeSelection](https://themeselection.com)
-- Freebies from [ThemeSelection](https://themeselection.com/products/category/download-free-admin-templates/)
-- [Blog](https://themeselection.com/blog/)
-
-## Social Media 🌍
-
-- Twitter : [https://twitter.com/Theme_Selection](https://twitter.com/Theme_Selection)
-- Facebook : [https://www.facebook.com/ThemeSelections/](https://www.facebook.com/ThemeSelections/)
-- Pinterest : [https://pinterest.com/themeselect/](https://pinterest.com/themeselect/)
-- Instagram : [https://www.instagram.com/themeselection/](https://www.instagram.com/themeselection/)
+```Show multi language
+http://localhost:8000?lang=1
+```
