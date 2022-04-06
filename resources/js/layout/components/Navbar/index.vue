@@ -1,8 +1,9 @@
 <template>
 	<div class="nav-bar">
 		<b-navbar toggleable="lg" type="dark" align="center">
-			<b-navbar-brand @click.prevent.stop="$emit('toggle')">
-				<i id="toggle-menu" class="fas fa-bars" />
+			<b-navbar-brand @click.prevent.stop="[$emit('toggle'), toggleIcon = !toggleIcon]">
+				<i v-if="toggleIcon === true" id="toggle-menu" class="fas fa-toggle-on" />
+				<i v-else id="toggle-menu" class="fas fa-toggle-off" />
 			</b-navbar-brand>
 
 			<b-navbar-nav class="izumi-logo-container">
@@ -53,6 +54,8 @@ export default {
         return {
             listData: [],
             width: window.innerWidth,
+
+            toggleIcon: true,
         };
     },
     computed: {
@@ -95,6 +98,15 @@ export default {
 <style lang="scss" scoped>
     @import '@/scss/variables.scss';
     @import '@/scss/modules/layout.scss';
+
+    #toggle-menu {
+      font-size: 30px;
+      color: $smalt;
+    }
+
+    #toggle-menu:hover {
+      cursor: pointer;
+    }
 
     .dropdown-content-scrollable {
         height: 240px;

@@ -10,7 +10,7 @@
 			<b-row>
 				<b-col>
 					<div :class="{ 'dev__btn-lang': true, 'dev__choose-lang': language === 'en' }">
-						<b-button @click="setLanguage('en')">
+						<b-button :disabled="isDisabledEnBtn" @click="setLanguage('en')">
 							<b-img class="flag-icon" :src="English" />
 							<span>{{ $t('DEV.ENGLISH') }}</span>
 						</b-button>
@@ -18,10 +18,10 @@
 				</b-col>
 
 				<b-col>
-					<div :class="{ 'dev__btn-lang': true, 'dev__choose-lang': language === 'ja' }">
-						<b-button @click="setLanguage('ja')">
-							<b-img class="flag-icon" :src="Japan" />
-							<span>{{ $t('DEV.JAPANESE') }}</span>
+					<div :class="{ 'dev__btn-lang': true, 'dev__choose-lang': language === 'vn' }">
+						<b-button :disabled="isDisabledVnBtn" @click="setLanguage('vn')">
+							<b-img class="flag-icon" :src="Vietnam" />
+							<span>{{ $t('DEV.VIETNAMESE') }}</span>
 						</b-button>
 					</div>
 				</b-col>
@@ -31,20 +31,18 @@
 </template>
 
 <script>
-import Japan from '@/assets/images/japan.png';
+import Vietnam from '@/assets/images/vietnam.png';
 import English from '@/assets/images/united-kingdom.png';
-import { convertEraName } from '@/utils/convertEraName';
 
 export default {
     name: 'PageDev',
     data() {
         return {
-            Japan,
+            Vietnam,
             English,
 
-            convertEraName,
-
-            year: '',
+            isDisabledVnBtn: false,
+            isDisabledEnBtn: false,
         };
     },
     computed: {
@@ -54,6 +52,14 @@ export default {
     },
     methods: {
         setLanguage(lang) {
+            if (lang === 'en') {
+                this.isDisabledEnBtn = true;
+                this.isDisabledVnBtn = false;
+            } else if (lang === 'vn') {
+                this.isDisabledEnBtn = false;
+                this.isDisabledVnBtn = true;
+            }
+
             this.$store.dispatch('app/setLanguage', lang)
                 .then(() => {
                     this.$i18n.locale = lang;
@@ -96,6 +102,7 @@ export default {
                 }
 
                 &:active {
+                    color: $smalt !important;
                     background-color: $golden-tainoi !important;
                 }
             }
@@ -109,6 +116,7 @@ export default {
 
         &__choose-lang {
             button {
+                color: $smalt;
                 background-color: $golden-tainoi;
             }
         }
