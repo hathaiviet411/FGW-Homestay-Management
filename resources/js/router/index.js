@@ -18,11 +18,11 @@ export const constantRoutes = [
         hidden: true,
     },
     login,
-    dev,
     timesheet,
     facilityManagement,
     staffManagement,
     departmentManagement,
+    dev,
 ];
 
 export const asyncRoutes = [];

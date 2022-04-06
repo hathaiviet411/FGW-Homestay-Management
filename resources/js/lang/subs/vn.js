@@ -45,6 +45,14 @@ export default {
         BUTTON_TEXT: 'Đăng nhập',
     },
 
+    DEPARTMENT_MANAGEMENT: {
+        DEPARTMENT_NAME: 'Tên phòng ban',
+        DEPARTMENT_ADDRESS: 'Địa chỉ phòng ban',
+        TOTAL_STAFF: 'Tổng số nhân viên',
+        DEPARTMENT_MANAGER: 'Quản lí',
+        ORGANIZED_DATE: 'Ngày thành lập',
+    },
+
     PAGE_TITLE: {
         STAFF_MANAGEMENT: 'Quản lý nhân viên',
         FACILITY_MANAGEMENT: 'Quản lí cơ sở vật chất',
@@ -66,6 +74,8 @@ export default {
         ADD: 'Thêm',
         MONTH_YEAR: 'Tháng năm',
         DEPARTMENT: 'Phòng ban',
+        SEARCH: 'Tìm kiếm',
+        SORT_BY: 'Sắp xếp theo',
     },
 
     FILTER: {
@@ -121,7 +131,8 @@ export default {
     },
 
     PAGINATION: {
-        DISPLAY_PER_PAGE: 'Số lượng hiern thị trên một trang',
+        DISPLAY_PER_PAGE: 'Số lượng hiển thị trên một trang',
+        ALL: 'Tất cả',
     },
 
     TEXT_COLLAPSE: 'Thu gọn',

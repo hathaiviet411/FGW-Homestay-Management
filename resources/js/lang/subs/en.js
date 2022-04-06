@@ -45,6 +45,14 @@ export default {
         BUTTON_TEXT: 'Login',
     },
 
+    DEPARTMENT_MANAGEMENT: {
+        DEPARTMENT_NAME: 'Department Name',
+        DEPARTMENT_ADDRESS: 'Department Address',
+        TOTAL_STAFF: 'Total Staff',
+        DEPARTMENT_MANAGER: 'Department Manager',
+        ORGANIZED_DATE: 'Organized Date',
+    },
+
     PAGE_TITLE: {
         STAFF_MANAGEMENT: 'Staff Management',
         FACILITY_MANAGEMENT: 'Facility Management',
@@ -65,6 +73,8 @@ export default {
         EDIT: 'Edit',
         MONTH_YEAR: 'Month Year',
         DEPARTMENT: 'Department',
+        SEARCH: 'Search',
+        SORT_BY: 'Sort By',
     },
 
     FILTER: {
@@ -121,6 +131,7 @@ export default {
 
     PAGINATION: {
         DISPLAY_PER_PAGE: 'Per Page',
+        ALL: 'All',
     },
 
     TEXT_COLLAPSE: 'Collapse',

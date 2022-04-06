@@ -34,7 +34,7 @@ Vue.use(IconsPlugin);
 import '@/assets/font-awesome/css/all.min.css';
 
 // path to vuetify export
-import vuetify from '@/plugins/vuetify';
+import vuetify from './plugins/vuetify';
 
 // Style
 import '@/scss/index.scss';

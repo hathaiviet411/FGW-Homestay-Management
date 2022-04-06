@@ -7,7 +7,7 @@
 			</b-navbar-brand>
 
 			<b-navbar-nav class="izumi-logo-container">
-				<span class="izumi-logo">HIMS</span>
+				<v-img :src="require('@/assets/images/logo.png')" />
 			</b-navbar-nav>
 
 			<b-navbar-toggle target="nav-collapse">
@@ -113,22 +113,4 @@ export default {
         overflow-x: hidden;
         overflow-y: auto;
     }
-
-    .izumi-logo-container {
-      width: 80%;
-      height: 100%;
-
-      .izumi-logo {
-        margin-left: 20px;
-        line-height: 5px !important;
-        font-size: 35px;
-        font-weight: 800;
-        color: #2787de !important;
-        -moz-transform: scale(1.5, 1); /* Firefox */
-        -o-transform: scale(1.5, 1); /* Opera */
-        -webkit-transform: scale(1.5, 1); /* Safari And Chrome */
-        transform: scale(1.5, 1); /* Standard Property */
-      }
-    }
-
 </style>
