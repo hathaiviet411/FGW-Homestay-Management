@@ -16,6 +16,12 @@
 
 			<div class="department-management-content">
 				<span>Department Management</span>
+				<!-- <span>https://gaixinhchonloc.com/</span> -->
+
+				<v-card elevation="12">
+					<v-card-title>Cat</v-card-title>
+					<v-card-text>Meo</v-card-text>
+				</v-card>
 			</div>
 		</b-overlay>
 	</div>

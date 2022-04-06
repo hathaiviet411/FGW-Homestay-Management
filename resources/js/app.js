@@ -33,6 +33,9 @@ Vue.use(IconsPlugin);
 // Icon Library
 import '@/assets/font-awesome/css/all.min.css';
 
+// path to vuetify export
+import vuetify from '@/plugins/vuetify';
+
 // Style
 import '@/scss/index.scss';
 
@@ -42,6 +45,7 @@ new Vue({
     el: '#app',
     router,
     store,
+    vuetify,
     i18n,
     render: h => h(App),
 });
