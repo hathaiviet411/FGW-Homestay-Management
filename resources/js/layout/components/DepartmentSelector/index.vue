@@ -40,11 +40,11 @@ export default {
             ListDepartment: [
                 {
                     department_id: 1,
-                    department_name: 'Tokyo',
+                    department_name: 'Hà Nội',
                 },
             ],
             currentDepartmentID: 1,
-            currentDepartmentName: 'Tokyo',
+            currentDepartmentName: 'Hà Nội',
         };
     },
     created() {
