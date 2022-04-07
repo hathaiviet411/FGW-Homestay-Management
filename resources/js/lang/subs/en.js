@@ -2,6 +2,7 @@ export default {
     ROUTER: {
         STAFF_MANAGEMENT: 'Staff Management',
         FACILITY_MANAGEMENT: 'Facility Management',
+        ROOM_MANAGEMENT: 'Room Management',
         TIMESHEET: 'Timesheet',
         DEPARTMENT_MANAGEMENT: 'Department Management',
         DEV: 'Dev',
@@ -51,6 +52,21 @@ export default {
         TOTAL_STAFF: 'Total Staff',
         DEPARTMENT_MANAGER: 'Department Manager',
         ORGANIZED_DATE: 'Organized Date',
+    },
+
+    STAFF_MANAGEMENT: {
+        STAFF_CODE: 'User Code',
+        FULL_NAME: 'Full Name',
+        EMAIL: 'Email',
+        DOB: 'Date of Birth',
+        ADDRESS: 'Address',
+        PARTICIPATED_DATE: 'Participated Date',
+        DEPARTMENT: 'Department',
+        ROLE: 'Role',
+        POSITION: 'Position',
+        CONTRACT_TYPE: 'Contract Type',
+        PHONE_NUMBER: 'Phone Number',
+        IS_RETIRED: 'Is Retired',
     },
 
     PAGE_TITLE: {

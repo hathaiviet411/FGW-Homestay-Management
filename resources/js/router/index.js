@@ -7,6 +7,7 @@ Vue.use(VueRouter);
 import login from './modules/login';
 import timesheet from './modules/timesheet';
 import facilityManagement from './modules/facilityManagement';
+import roomManagement from './modules/roomManagement';
 import staffManagement from './modules/staffManagement';
 import departmentManagement from './modules/departmentManagement';
 import dev from './modules/dev';
@@ -20,6 +21,7 @@ export const constantRoutes = [
     login,
     timesheet,
     facilityManagement,
+    roomManagement,
     staffManagement,
     departmentManagement,
     dev,

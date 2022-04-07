@@ -53,7 +53,8 @@ export default {
 
     .display-menu {
         height: 100%;
-        width: 130px;
+        width: 200px;
+        padding-top: 30px;
         list-style-type: disc;
         margin-block-start: 0;
         margin-block-end: 0;
@@ -63,7 +64,7 @@ export default {
         text-align: center;
 
         a {
-            width: 130px;
+            width: 200px;
             display: block;
 
             li {
@@ -99,7 +100,7 @@ export default {
                     position: absolute;
                     display: block;
 
-                    left: 130px;
+                    left: 200px;
 
                     background-color: $smalt;
 
@@ -126,8 +127,11 @@ export default {
         }
 
         a.router-link-active {
+            background-color: $golden-tainoi;
+
             li {
-                color: $golden-tainoi;
+                font-weight: bold;
+                color: $smalt;
             }
         }
     }

@@ -2,6 +2,7 @@ export default {
     ROUTER: {
         STAFF_MANAGEMENT: 'Quản lý nhân viên',
         FACILITY_MANAGEMENT: 'Quản lí cơ sở vật chất',
+        ROOM_MANAGEMENT: 'Quản lí phòng nghỉ',
         TIMESHEET: 'Quản lý chấm công',
         DEPARTMENT_MANAGEMENT: 'Quản lí phòng ban',
         DEV: 'Phát triển',
@@ -51,6 +52,21 @@ export default {
         TOTAL_STAFF: 'Tổng số nhân viên',
         DEPARTMENT_MANAGER: 'Quản lí',
         ORGANIZED_DATE: 'Ngày thành lập',
+    },
+
+    STAFF_MANAGEMENT: {
+        STAFF_CODE: 'Mã nhân viên',
+        FULL_NAME: 'Họ và tên',
+        EMAIL: 'Email',
+        DOB: 'Ngày sinh',
+        PARTICIPATED_DATE: 'Ngày gia nhập',
+        DEPARTMENT: 'Phòng ban',
+        ROLE: 'Vai trò',
+        POSITION: 'Chức vụ',
+        CONTRACT_TYPE: 'Loại hợp đồng',
+        ADDRESS: 'Địa chỉ',
+        PHONE_NUMBER: 'Số điện thoại',
+        IS_RETIRED: 'Trạng thái',
     },
 
     PAGE_TITLE: {
