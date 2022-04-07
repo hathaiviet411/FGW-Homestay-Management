@@ -32,7 +32,7 @@
 
 									<v-col lg="2" sm="12" class="text-center">
 										<v-btn color="#1e2a55" dark class="mt-3">
-											<span style="color: #FFFFFF;">{{ $t('FEEDBACK_MAINTENANCE.NEW_FEEDBACK') }}</span>
+											<span style="color: #FFFFFF;">{{ $t('FEEDBACK_MANAGEMENT.NEW_FEEDBACK') }}</span>
 										</v-btn>
 									</v-col>
 								</v-row>
