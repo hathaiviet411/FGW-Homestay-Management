@@ -1,5 +1,5 @@
 <template>
-	<div class="room-management">
+	<div class="feedback-management">
 		<v-app>
 			<b-overlay
 				:show="overlay.show"
@@ -32,7 +32,7 @@
 
 									<v-col lg="2" sm="12" class="text-center">
 										<v-btn color="#1e2a55" dark class="mt-3">
-											<span style="color: #FFFFFF;">{{ $t('STAFF_MANAGEMENT.NEW_STAFF') }}</span>
+											<span style="color: #FFFFFF;">{{ $t('FEEDBACK_MAINTENANCE.NEW_FEEDBACK') }}</span>
 										</v-btn>
 									</v-col>
 								</v-row>
@@ -42,8 +42,6 @@
 								:headers="headers"
 								:items="items"
 								:search="search"
-								item-key="staff_name"
-								sort-by="staff_name"
 								:header-props="{
 									sortByText: $t('BUTTON.SORT_BY'),
 									sortIcon: null,
@@ -64,10 +62,10 @@
 
 <script>
 export default {
-    name: 'RoomManagementIndex',
+    name: 'FeedbackManagementList',
     data() {
         return {
-            RoomList: [],
+            FacilityList: [],
 
             overlay: {
                 show: false,
@@ -78,33 +76,42 @@ export default {
             },
 
             headers: [
-                { text: this.$t('ROOM_MANAGEMENT.ROOM_NUMBER') + ' ⇅', sortable: true, value: 'room_number' },
-                { text: this.$t('ROOM_MANAGEMENT.ROOM_TYPE') + ' ⇅', sortable: true, value: 'room_type' },
-                { text: this.$t('ROOM_MANAGEMENT.ROOM_STATUS') + ' ⇅', sortable: true, value: 'room_status' },
-                { text: this.$t('ROOM_MANAGEMENT.ROOM_CAPACITY') + ' ⇅', sortable: true, value: 'room_capacity' },
-                { text: this.$t('ROOM_MANAGEMENT.LEVEL') + ' ⇅', sortable: true, value: 'level' },
-                { text: this.$t('ROOM_MANAGEMENT.ROOM_INFORMATION'), sortable: false, value: 'room_information' },
-                { text: this.$t('ROOM_MANAGEMENT.BUILDING') + ' ⇅', sortable: true, value: 'building' },
+                { text: this.$t('FEEDBACK_MANAGEMENT.FEEDBACK_TITLE') + ' ⇅', sortable: true, value: 'feedback_title' },
+                { text: this.$t('FEEDBACK_MANAGEMENT.FEEDBACK_CONTENT') + ' ⇅', sortable: true, value: 'feedback_content' },
+                { text: this.$t('FEEDBACK_MANAGEMENT.UPLOADED_DATE') + ' ⇅', sortable: true, value: 'uploaded_date' },
+                { text: this.$t('FEEDBACK_MANAGEMENT.SUBJECT') + ' ⇅', sortable: true, value: 'subject' },
+                { text: this.$t('FEEDBACK_MANAGEMENT.USER_NAME') + ' ⇅', sortable: true, value: 'user_name' },
+                { text: this.$t('FEEDBACK_MANAGEMENT.DEPARTMENT') + ' ⇅', sortable: true, value: 'department' },
+                { text: this.$t('FEEDBACK_MANAGEMENT.POSITION') + ' ⇅', sortable: true, value: 'position' },
             ],
 
             items: [
                 {
-                    room_number: 302,
-                    room_type: 'Classic',
-                    room_status: 'Empty',
-                    room_capacity: '2',
-                    level: 3,
-                    room_information: 'Cat',
-                    building: 'Toà C',
+                    feedback_title: 'Feedback Title',
+                    feedback_content: 'Feedback Content',
+                    uploaded_date: 'Uploaded Date',
+                    subject: 'Subject',
+                    user_name: 'User Name',
+                    department: 'Department',
+                    position: 'Position',
                 },
                 {
-                    room_number: 102,
-                    room_type: 'Luxury',
-                    room_status: 'In use',
-                    room_capacity: '1',
-                    level: 1,
-                    room_information: 'Dog',
-                    building: 'Toà A',
+                    feedback_title: 'Feedback Title',
+                    feedback_content: 'Feedback Content',
+                    uploaded_date: 'Uploaded Date',
+                    subject: 'Subject',
+                    user_name: 'User Name',
+                    department: 'Department',
+                    position: 'Position',
+                },
+                {
+                    feedback_title: 'Feedback Title',
+                    feedback_content: 'Feedback Content',
+                    uploaded_date: 'Uploaded Date',
+                    subject: 'Subject',
+                    user_name: 'User Name',
+                    department: 'Department',
+                    position: 'Position',
                 },
             ],
 
@@ -114,20 +121,20 @@ export default {
         };
     },
     created() {
-        this.getRoomList();
+        this.getFeedbackList();
     },
     methods: {
-        getRoomList() {
-            console.log('Get Room List');
+        getFeedbackList() {
+            console.log('Get Feedback List');
         },
     },
 };
 </script>
 
 <style lang="scss" scoped>
-  @import '@/scss/variables.scss';
+  @import "@/scss/variables.scss";
 
-  .room-management {
+  .feedback-management {
     ::v-deep th {
       font-size: 14px !important;
       color: $white !important;

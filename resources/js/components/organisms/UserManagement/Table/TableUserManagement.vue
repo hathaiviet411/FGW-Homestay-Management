@@ -192,7 +192,7 @@ export default {
                 position: -webkit-sticky;
                 top: 1px;
                 text-align: center;
-                background-color: $golden-tainoi;
+                background-color: $white;
                 color: $white;
                 min-width: 200px;
                 word-break: keep-all;
@@ -263,11 +263,11 @@ export default {
             }
 
             .modal-btn {
-                background-color: $golden-tainoi;
+                background-color: $white;
                 color: $white;
 
                 &:focus {
-                    background-color: $golden-tainoi;
+                    background-color: $white;
                     color: $white;
                 }
             }

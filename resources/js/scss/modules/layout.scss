@@ -21,7 +21,7 @@
     }
 
     .navbar-toggler {
-        background-color: $golden-tainoi;
+        background-color: $white;
 
         i {
             color: $white;
@@ -42,8 +42,8 @@
         }
 
 		.dropdown-toggle {
-			background-color: $smalt;
-      color: $golden-tainoi;
+			background-color: $cloud-burst;
+      color: $white;
       font-weight: bold;
 			min-width: 160px;
 		}
@@ -81,7 +81,7 @@
 	height: 100%;
 	margin-left: -200px;
 	overflow-y: auto;
-	background: $smalt;
+	background: $cloud-burst;
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;

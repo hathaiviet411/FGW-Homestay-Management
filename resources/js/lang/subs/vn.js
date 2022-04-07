@@ -1,10 +1,14 @@
 export default {
     ROUTER: {
+        DASHBOARD: 'Trang chủ',
         STAFF_MANAGEMENT: 'Quản lý nhân viên',
-        FACILITY_MANAGEMENT: 'Quản lí cơ sở vật chất',
-        ROOM_MANAGEMENT: 'Quản lí phòng nghỉ',
+        SCHEDULE_MANAGEMENT: 'Thời khoá biểu',
+        FACILITY_MAINTENANCE: 'Bảo trì cơ sở vật chất',
+        ROOM_MANAGEMENT: 'Quản lí phòng ở',
+        JOB_MANAGEMENT: 'Quản lí công việc',
         TIMESHEET: 'Quản lý chấm công',
         DEPARTMENT_MANAGEMENT: 'Quản lí phòng ban',
+        FEEDBACK_MANAGEMENT: 'Quản lí phản hồi',
         DEV: 'Phát triển',
     },
 
@@ -52,6 +56,7 @@ export default {
         TOTAL_STAFF: 'Tổng số nhân viên',
         DEPARTMENT_MANAGER: 'Quản lí',
         ORGANIZED_DATE: 'Ngày thành lập',
+        NEW_DEPARTMENT: 'Thêm phòng ban mới',
     },
 
     STAFF_MANAGEMENT: {
@@ -67,6 +72,46 @@ export default {
         ADDRESS: 'Địa chỉ',
         PHONE_NUMBER: 'Số điện thoại',
         IS_RETIRED: 'Trạng thái',
+        NEW_STAFF: 'Thêm nhân viên mới',
+    },
+
+    ROOM_MANAGEMENT: {
+        ROOM_NUMBER: 'Sô phòng',
+        ROOM_TYPE: 'Loại phòng',
+        ROOM_CAPACITY: 'Sức chứa',
+        ROOM_STATUS: 'Trạng thái',
+        LEVEL: 'Tầng',
+        ROOM_INFORMATION: 'Thông tin phòng',
+        BUILDING: 'Toà',
+        NEW_ROOM: 'Thêm phòng mới',
+    },
+
+    JOB_MANAGEMENT: {
+        JOB_NAME: 'Tên công việc',
+        JOB_DESCRIPTION: 'Mô tả công việc',
+        REQUIRED_POSITION: 'Yêu cầu chức vụ',
+        REQUIRED_CONTRACT_TYPE: 'Yêu cầu loại hợp đồng',
+        NEW_JOB: 'Thêm công việc mới',
+    },
+
+    FACILITY_MAINTENANCE: {
+        FACILITY_NAME: 'Tên cơ sở vật chất',
+        DESCRIPTION: 'Mô tả cơ sở vật chất',
+        STATUS: 'Trạng thái',
+        MAINTAINED_START_DATE: 'Ngày bắt đầu bảo trì',
+        RESPONSIBLE_STAFF: 'Nhân viên chịu trách nhiệm',
+        NEW_FACILITY: 'Thêm yêu cầu bảo trì mới',
+    },
+
+    FEEDBACK_MANAGEMENT: {
+        FEEDBACK_TITLE: 'Tiêu đề',
+        FEEDBACK_CONTENT: 'Nội dung',
+        UPLOADED_DATE: 'Ngày gửi',
+        SUBJECT: 'Chủ đề',
+        USER_NAME: 'Tên người gửi',
+        DEPARTMENT: 'Phòng ban',
+        POSITION: 'Chức vụ',
+        NEW_FEEDBACK: 'Thêm phản hồi mới',
     },
 
     PAGE_TITLE: {

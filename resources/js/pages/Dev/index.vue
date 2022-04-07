@@ -89,7 +89,7 @@ export default {
             text-align: center;
 
             button {
-                background-color: $smalt;
+                background-color: $cloud-burst;
                 min-width: 200px;
                 border: none;
                 padding: 10px 0px 10px 0;
@@ -102,8 +102,8 @@ export default {
                 }
 
                 &:active {
-                    color: $smalt !important;
-                    background-color: $golden-tainoi !important;
+                    color: $cloud-burst !important;
+                    background-color: $white !important;
                 }
             }
 
@@ -116,8 +116,8 @@ export default {
 
         &__choose-lang {
             button {
-                color: $smalt;
-                background-color: $golden-tainoi;
+                color: $cloud-burst;
+                background-color: $white;
             }
         }
     }

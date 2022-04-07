@@ -89,15 +89,15 @@ export default {
 
 .date-selector {
     button {
-        background-color: $smalt;
-        color: $golden-tainoi;
+        background-color: $cloud-burst;
+        color: $white;
 
         &:active {
-            background-color: $smalt;
+            background-color: $cloud-burst;
         }
 
         &:focus {
-            background-color: $smalt;
+            background-color: $cloud-burst;
         }
     }
 
@@ -111,8 +111,8 @@ export default {
     button.plus-btn {
         &:hover {
             opacity: .8 !important;
-            background-color: $smalt;
-            color: $golden-tainoi;
+            background-color: $cloud-burst;
+            color: $white;
         }
     }
 }

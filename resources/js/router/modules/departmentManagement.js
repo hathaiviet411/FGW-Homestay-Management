@@ -7,7 +7,7 @@ const departmentManagement = {
     name: 'DepartmentManagement',
     meta: {
         title: 'ROUTER.DEPARTMENT_MANAGEMENT',
-        icon: 'fas fa-dungeon',
+        icon: 'fas fa-building',
     },
     children: [
         {

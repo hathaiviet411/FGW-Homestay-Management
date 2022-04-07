@@ -101,7 +101,7 @@ export default {
 
     #toggle-menu {
       font-size: 30px;
-      color: $smalt;
+      color: $cloud-burst;
     }
 
     #toggle-menu:hover {

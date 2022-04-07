@@ -102,7 +102,7 @@ export default {
 
                     left: 200px;
 
-                    background-color: $smalt;
+                    background-color: $cloud-burst;
 
                     a {
                         display: inline-flex;
@@ -119,7 +119,7 @@ export default {
                         }
 
                         &:hover {
-                            background-color: $golden-tainoi;
+                            background-color: $white;
                         }
                     }
                 }
@@ -127,11 +127,11 @@ export default {
         }
 
         a.router-link-active {
-            background-color: $golden-tainoi;
+            background-color: $white;
 
             li {
                 font-weight: bold;
-                color: $smalt;
+                color: $black;
             }
         }
     }

@@ -6,7 +6,7 @@ const roomManagement = {
     redirect: { name: 'RoomManagementIndex' },
     name: 'RoomManagement',
     meta: {
-        title: 'ROUTER.DEPARTMENT_MANAGEMENT',
+        title: 'ROUTER.ROOM_MANAGEMENT',
         icon: 'fas fa-door-open',
     },
     children: [
@@ -14,7 +14,7 @@ const roomManagement = {
             path: 'index',
             name: 'RoomManagementIndex',
             meta: {
-                title: 'ROUTER.DEPARTMENT_MANAGEMENT',
+                title: 'ROUTER.ROOM_MANAGEMENT',
             },
             component: () => import(/* webpackChunkName: "RoomManagementIndex" */ '@/pages/RoomManagement/Index'),
         },

@@ -16,16 +16,26 @@
 				</template>
 
 				<v-row class="my-3 mx-3">
-					<v-col :cols="isMobileMode === true ? '12' : '10'">
+					<v-col cols="12">
 						<v-card elevation="24" min-height="700">
 							<v-card-title>
-								<v-text-field
-									v-model="search"
-									append-icon="mdi-magnify"
-									:label="$t('BUTTON.SEARCH')"
-									single-line
-									hide-details
-								/>
+								<v-row>
+									<v-col lg="10" sm="12">
+										<v-text-field
+											v-model="search"
+											append-icon="mdi-magnify"
+											:label="$t('BUTTON.SEARCH')"
+											single-line
+											hide-details
+										/>
+									</v-col>
+
+									<v-col lg="2" sm="12" class="text-center">
+										<v-btn color="#1e2a55" dark class="mt-3">
+											<span style="color: #FFFFFF;">{{ $t('DEPARTMENT_MANAGEMENT.NEW_DEPARTMENT') }}</span>
+										</v-btn>
+									</v-col>
+								</v-row>
 							</v-card-title>
 
 							<v-data-table
@@ -36,6 +46,7 @@
 								sort-by="department_name"
 								:header-props="{
 									sortByText: $t('BUTTON.SORT_BY'),
+									sortIcon: null,
 								}"
 								:footer-props="{
 									itemsPerPageText: $t('PAGINATION.DISPLAY_PER_PAGE'),
@@ -43,12 +54,6 @@
 									itemsPerPageOption: [10, 20, 50, 100, -1]
 								}"
 							/>
-						</v-card>
-					</v-col>
-
-					<v-col v-if="isMobileMode === false" cols="2">
-						<v-card elevation="12" max-width="210px" class="mx-auto py-2 px-2" min-height="700">
-							<v-img :src="link" class="mx-auto" />
 						</v-card>
 					</v-col>
 				</v-row>
@@ -73,11 +78,11 @@ export default {
             },
 
             headers: [
-                { text: this.$t('DEPARTMENT_MANAGEMENT.DEPARTMENT_NAME'), align: 'start', sortable: true, value: 'department_name' },
-                { text: this.$t('DEPARTMENT_MANAGEMENT.DEPARTMENT_ADDRESS'), align: 'start', sortable: false, value: 'department_address' },
-                { text: this.$t('DEPARTMENT_MANAGEMENT.TOTAL_STAFF'), align: 'start', sortable: true, value: 'total_staff' },
-                { text: this.$t('DEPARTMENT_MANAGEMENT.DEPARTMENT_MANAGER'), align: 'start', sortable: false, value: 'department_manager' },
-                { text: this.$t('DEPARTMENT_MANAGEMENT.ORGANIZED_DATE'), align: 'start', sortable: true, value: 'organized_date' },
+                { text: this.$t('DEPARTMENT_MANAGEMENT.DEPARTMENT_NAME') + ' ⇅', sortable: true, value: 'department_name' },
+                { text: this.$t('DEPARTMENT_MANAGEMENT.DEPARTMENT_ADDRESS'), sortable: false, value: 'department_address' },
+                { text: this.$t('DEPARTMENT_MANAGEMENT.TOTAL_STAFF') + ' ⇅', sortable: true, value: 'total_staff' },
+                { text: this.$t('DEPARTMENT_MANAGEMENT.DEPARTMENT_MANAGER'), sortable: false, value: 'department_manager' },
+                { text: this.$t('DEPARTMENT_MANAGEMENT.ORGANIZED_DATE') + ' ⇅', sortable: true, value: 'organized_date' },
             ],
 
             items: [
@@ -133,39 +138,15 @@ export default {
 
             search: '',
 
-            img_link: '',
-
-            isMobileMode: false,
-
             language: this.$store.getters.language,
         };
     },
     created() {
-        window.addEventListener('resize', this.handleResizeResolution);
-        this.handleResizeResolution();
         this.getDepartmentList();
-        this.randomSideImage();
-    },
-    destroyed() {
-        window.removeEventListener('resize', this.handleResizeResolution);
     },
     methods: {
         getDepartmentList() {
             console.log('Get Department List');
-        },
-
-        randomSideImage() {
-            this.link = require('@/assets/images/art' + Math.floor((Math.random() * 10) + 1) + '.png');
-        },
-
-        handleResizeResolution() {
-            var clientWidth = window.innerWidth;
-
-            if (clientWidth <= 768) {
-                this.isMobileMode = true;
-            } else {
-                this.isMobileMode = false;
-            }
         },
     },
 };
@@ -176,6 +157,20 @@ export default {
 
   .department-management {
     max-height: 768px;
+
+    ::v-deep th {
+      font-weight: bolder !important;
+      color: $white !important;
+      background-color: $cloud-burst;
+    }
+
+    ::v-deep th {
+      text-align: center !important;
+    }
+
+    ::v-deep td {
+      text-align: center !important;
+    }
   }
 
   @media (max-width: 768px) {

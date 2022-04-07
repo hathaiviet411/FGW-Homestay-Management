@@ -24,7 +24,7 @@ export default {
     &__straight {
         width: 8px;
         line-height: 1rem;
-        background-color: $golden-tainoi;
+        background-color: $white;
     }
 
     &__text {

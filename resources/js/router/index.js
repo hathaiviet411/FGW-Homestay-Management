@@ -5,11 +5,15 @@ Vue.use(VueRouter);
 
 // Import modules router
 import login from './modules/login';
+import dashboard from './modules/dashboard';
 import timesheet from './modules/timesheet';
-import facilityManagement from './modules/facilityManagement';
+import scheduleManagement from './modules/scheduleManagement';
+import facilityMaintenance from './modules/facilityMaintenance';
 import roomManagement from './modules/roomManagement';
+import jobManagement from './modules/jobManagement';
 import staffManagement from './modules/staffManagement';
 import departmentManagement from './modules/departmentManagement';
+import feedbackManagement from './modules/feedbackManagement';
 import dev from './modules/dev';
 
 export const constantRoutes = [
@@ -19,11 +23,15 @@ export const constantRoutes = [
         hidden: true,
     },
     login,
+    dashboard,
     timesheet,
-    facilityManagement,
+    scheduleManagement,
+    facilityMaintenance,
     roomManagement,
+    jobManagement,
     staffManagement,
     departmentManagement,
+    feedbackManagement,
     dev,
 ];
 

@@ -95,19 +95,19 @@ export default {
 
     .department-card {
         min-width: 160px;
-        background: $smalt;
+        background: $cloud-burst;
     }
 
     .department-card:hover {
-        background: $smalt;
+        background: $cloud-burst;
         cursor: pointer;
     }
 
     .department-card:focus {
-        background: $smalt;
+        background: $cloud-burst;
     }
 
     .department-card:active {
-        background: $smalt;
+        background: $cloud-burst;
     }
 </style>

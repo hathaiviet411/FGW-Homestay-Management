@@ -4,13 +4,13 @@
 
     i {
         font-size: 20px;
-        color: $golden-tainoi;
+        color: $white;
     }
 
     button.btn-outline-secondary {
         &:hover {
             box-shadow: none;
-            background-color: $golden-tainoi;
+            background-color: $white;
             color: $white;
 
             i {
@@ -20,7 +20,7 @@
 
         &:focus {
             box-shadow: none;
-            background-color: $golden-tainoi;
+            background-color: $white;
             color: $white;
 
             i {
@@ -30,7 +30,7 @@
 
         &:active {
             box-shadow: none;
-            background-color: $golden-tainoi;
+            background-color: $white;
 
             i {
                 color: $white;
@@ -39,7 +39,7 @@
 
         &:not(:disabled):not(.disabled):active:focus, &:not(:disabled):not(.disabled).active:focus, .show > .dropdown-toggle:focus {
             box-shadow: none;
-            background-color: $golden-tainoi;
+            background-color: $white;
 
             i {
                 color: $white;

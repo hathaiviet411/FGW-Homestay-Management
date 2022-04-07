@@ -50,7 +50,7 @@ export default {
         margin-top: 30px;
         text-align: center;
         align-items: center;
-        background-color: $smalt;
+        background-color: $cloud-burst;
     }
 
     .maintenance-btn {
@@ -62,15 +62,15 @@ export default {
     .maintenance-btn-default {
         &:hover {
             opacity: .5;
-            background-color: $smalt !important;
+            background-color: $cloud-burst !important;
         }
 
         &:active {
-            background-color: $smalt !important;
+            background-color: $cloud-burst !important;
         }
 
         &:focus {
-            background-color: $smalt !important;
+            background-color: $cloud-burst !important;
         }
     }
 
@@ -95,51 +95,51 @@ export default {
     .vehicle-info-btn-default {
         &:hover {
             opacity: .5;
-            background-color: $smalt !important;
+            background-color: $cloud-burst !important;
         }
 
         &:active {
-            background-color: $smalt !important;
+            background-color: $cloud-burst !important;
         }
 
         &:focus {
-            background-color: $smalt !important;
+            background-color: $cloud-burst !important;
         }
     }
 
     .v-button-default {
-        background-color: $smalt !important;
+        background-color: $cloud-burst !important;
         font-weight: bold;
-        color: $golden-tainoi;
+        color: $white;
 
         &:hover {
             opacity: .5;
-            background-color: $smalt !important;
+            background-color: $cloud-burst !important;
         }
 
         &:active {
-            background-color: $smalt !important;
+            background-color: $cloud-burst !important;
         }
 
         &:focus {
-            background-color: $smalt !important;
+            background-color: $cloud-burst !important;
         }
     }
 
     .v-button-primary {
-        background-color: $smalt !important;
+        background-color: $cloud-burst !important;
 
         &:hover {
             opacity: .5;
-            background-color: $smalt !important;
+            background-color: $cloud-burst !important;
         }
 
         &:active {
-            background-color: $smalt !important;
+            background-color: $cloud-burst !important;
         }
 
         &:focus {
-            background-color: $smalt !important;
+            background-color: $cloud-burst !important;
         }
     }
 </style>

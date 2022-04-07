@@ -1,5 +1,5 @@
 <template>
-	<div class="room-management">
+	<div class="facility-management">
 		<v-app>
 			<b-overlay
 				:show="overlay.show"
@@ -32,7 +32,7 @@
 
 									<v-col lg="2" sm="12" class="text-center">
 										<v-btn color="#1e2a55" dark class="mt-3">
-											<span style="color: #FFFFFF;">{{ $t('STAFF_MANAGEMENT.NEW_STAFF') }}</span>
+											<span style="color: #FFFFFF;">{{ $t('FACILITY_MAINTENANCE.NEW_FACILITY') }}</span>
 										</v-btn>
 									</v-col>
 								</v-row>
@@ -42,8 +42,6 @@
 								:headers="headers"
 								:items="items"
 								:search="search"
-								item-key="staff_name"
-								sort-by="staff_name"
 								:header-props="{
 									sortByText: $t('BUTTON.SORT_BY'),
 									sortIcon: null,
@@ -64,10 +62,10 @@
 
 <script>
 export default {
-    name: 'RoomManagementIndex',
+    name: 'FacilityManagementList',
     data() {
         return {
-            RoomList: [],
+            FacilityList: [],
 
             overlay: {
                 show: false,
@@ -78,33 +76,41 @@ export default {
             },
 
             headers: [
-                { text: this.$t('ROOM_MANAGEMENT.ROOM_NUMBER') + ' ⇅', sortable: true, value: 'room_number' },
-                { text: this.$t('ROOM_MANAGEMENT.ROOM_TYPE') + ' ⇅', sortable: true, value: 'room_type' },
-                { text: this.$t('ROOM_MANAGEMENT.ROOM_STATUS') + ' ⇅', sortable: true, value: 'room_status' },
-                { text: this.$t('ROOM_MANAGEMENT.ROOM_CAPACITY') + ' ⇅', sortable: true, value: 'room_capacity' },
-                { text: this.$t('ROOM_MANAGEMENT.LEVEL') + ' ⇅', sortable: true, value: 'level' },
-                { text: this.$t('ROOM_MANAGEMENT.ROOM_INFORMATION'), sortable: false, value: 'room_information' },
-                { text: this.$t('ROOM_MANAGEMENT.BUILDING') + ' ⇅', sortable: true, value: 'building' },
+                { text: this.$t('FACILITY_MAINTENANCE.FACILITY_NAME') + ' ⇅', sortable: true, value: 'facility_name' },
+                { text: this.$t('FACILITY_MAINTENANCE.DESCRIPTION') + ' ⇅', sortable: true, value: 'description' },
+                { text: this.$t('FACILITY_MAINTENANCE.STATUS') + ' ⇅', sortable: true, value: 'status' },
+                { text: this.$t('FACILITY_MAINTENANCE.MAINTAINED_START_DATE') + ' ⇅', sortable: true, value: 'maintained_start_date' },
+                { text: this.$t('FACILITY_MAINTENANCE.RESPONSIBLE_STAFF') + ' ⇅', sortable: true, value: 'responsible_staff' },
             ],
 
             items: [
                 {
-                    room_number: 302,
-                    room_type: 'Classic',
-                    room_status: 'Empty',
-                    room_capacity: '2',
-                    level: 3,
-                    room_information: 'Cat',
-                    building: 'Toà C',
+                    facility_name: 'Cửa chính sảnh A',
+                    description: 'Cánh của chính bên phải sảnh A',
+                    status: 'Hư hỏng',
+                    maintained_start_date: '2020-01-01',
+                    responsible_staff: 'Nguyễn Văn A',
                 },
                 {
-                    room_number: 102,
-                    room_type: 'Luxury',
-                    room_status: 'In use',
-                    room_capacity: '1',
-                    level: 1,
-                    room_information: 'Dog',
-                    building: 'Toà A',
+                    facility_name: 'Cửa chính sảnh A',
+                    description: 'Cánh của chính bên phải sảnh A',
+                    status: 'Hư hỏng',
+                    maintained_start_date: '2020-01-01',
+                    responsible_staff: 'Nguyễn Văn A',
+                },
+                {
+                    facility_name: 'Cửa chính sảnh A',
+                    description: 'Cánh của chính bên phải sảnh A',
+                    status: 'Hư hỏng',
+                    maintained_start_date: '2020-01-01',
+                    responsible_staff: 'Nguyễn Văn A',
+                },
+                {
+                    facility_name: 'Cửa chính sảnh A',
+                    description: 'Cánh của chính bên phải sảnh A',
+                    status: 'Hư hỏng',
+                    maintained_start_date: '2020-01-01',
+                    responsible_staff: 'Nguyễn Văn A',
                 },
             ],
 
@@ -114,20 +120,20 @@ export default {
         };
     },
     created() {
-        this.getRoomList();
+        this.getFacilityList();
     },
     methods: {
-        getRoomList() {
-            console.log('Get Room List');
+        getFacilityList() {
+            console.log('Get Facility List');
         },
     },
 };
 </script>
 
 <style lang="scss" scoped>
-  @import '@/scss/variables.scss';
+  @import "@/scss/variables.scss";
 
-  .room-management {
+  .facility-management {
     ::v-deep th {
       font-size: 14px !important;
       color: $white !important;

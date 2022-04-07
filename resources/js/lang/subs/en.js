@@ -1,10 +1,14 @@
 export default {
     ROUTER: {
+        DASHBOARD: 'Dashboard',
         STAFF_MANAGEMENT: 'Staff Management',
-        FACILITY_MANAGEMENT: 'Facility Management',
+        SCHEDULE_MANAGEMENT: 'Schedule Management',
+        FACILITY_MAINTENANCE: 'Facility Maintenance',
         ROOM_MANAGEMENT: 'Room Management',
+        JOB_MANAGEMENT: 'Job Management',
         TIMESHEET: 'Timesheet',
         DEPARTMENT_MANAGEMENT: 'Department Management',
+        FEEDBACK_MANAGEMENT: 'Feedback Management',
         DEV: 'Dev',
     },
 
@@ -52,6 +56,7 @@ export default {
         TOTAL_STAFF: 'Total Staff',
         DEPARTMENT_MANAGER: 'Department Manager',
         ORGANIZED_DATE: 'Organized Date',
+        NEW_DEPARTMENT: 'New Department',
     },
 
     STAFF_MANAGEMENT: {
@@ -67,6 +72,46 @@ export default {
         CONTRACT_TYPE: 'Contract Type',
         PHONE_NUMBER: 'Phone Number',
         IS_RETIRED: 'Is Retired',
+        NEW_STAFF: 'New Staff',
+    },
+
+    ROOM_MANAGEMENT: {
+        ROOM_NUMBER: 'Room Number',
+        ROOM_TYPE: 'Room Type',
+        ROOM_CAPACITY: 'Room Capacity',
+        ROOM_STATUS: 'Room Status',
+        LEVEL: 'Level',
+        ROOM_INFORMATION: 'Room Information',
+        BUILDING: 'Building',
+        NEW_ROOM: 'New Room',
+    },
+
+    JOB_MANAGEMENT: {
+        JOB_NAME: 'Job Name',
+        JOB_DESCRIPTION: 'Job Description',
+        REQUIRED_POSITION: 'Required Position',
+        REQUIRED_CONTRACT_TYPE: 'Required Contract Type',
+        NEW_JOB: 'New Job',
+    },
+
+    FACILITY_MAINTENANCE: {
+        FACILITY_NAME: 'Facility Name',
+        DESCRIPTION: 'Description',
+        STATUS: 'Facility Status',
+        MAINTAINED_START_DATE: 'Maintained Start Date',
+        RESPONSIBLE_STAFF: 'Responsible Staff',
+        NEW_FACILITY: 'New Issue',
+    },
+
+    FEEDBACK_MANAGEMENT: {
+        FEEDBACK_TITLE: 'Feedback Title',
+        FEEDBACK_CONTENT: 'Feedback Content',
+        UPLOADED_DATE: 'Uploaded Date',
+        SUBJECT: 'Subject',
+        USER_NAME: 'User Name',
+        DEPARTMENT: 'Department',
+        POSITION: 'Position',
+        NEW_FEEDBACK: 'New Feedback',
     },
 
     PAGE_TITLE: {
