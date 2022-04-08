@@ -30,6 +30,9 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 
+// Require moment js library
+Vue.use(require('vue-moment'));
+
 // Icon Library
 import '@/assets/font-awesome/css/all.min.css';
 

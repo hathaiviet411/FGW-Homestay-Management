@@ -20,7 +20,13 @@
 						<v-card elevation="24" min-height="700">
 							<v-card-title>
 								<v-row>
-									<v-col lg="10" sm="12">
+									<v-col lg="4" sm="12">
+										<v-card elevation="3">
+											<vHeaderPage>{{ 'Tổng số phòng ban: ⭐ 24' }}</vHeaderPage>
+										</v-card>
+									</v-col>
+
+									<v-col lg="5" sm="12">
 										<v-text-field
 											v-model="search"
 											append-icon="mdi-magnify"
@@ -30,8 +36,8 @@
 										/>
 									</v-col>
 
-									<v-col lg="2" sm="12" class="text-center">
-										<v-btn color="#1e2a55" dark class="mt-3">
+									<v-col lg="3" sm="12" class="text-center">
+										<v-btn color="#1e2a55" dark block class="mt-3" @click="registerDialog = true">
 											<span style="color: #FFFFFF;">{{ $t('DEPARTMENT_MANAGEMENT.NEW_DEPARTMENT') }}</span>
 										</v-btn>
 									</v-col>
@@ -39,6 +45,7 @@
 							</v-card-title>
 
 							<v-data-table
+								class="department-management-list-table"
 								:headers="headers"
 								:items="items"
 								:search="search"
@@ -57,14 +64,119 @@
 						</v-card>
 					</v-col>
 				</v-row>
+
+				<!-- Register Dialog -->
+				<v-dialog v-model="registerDialog" max-width="800px" persistent no-click-animation>
+					<v-card>
+						<v-card-title>
+							<span>Cat</span>
+						</v-card-title>
+
+						<v-card-text>
+							<v-row>
+								<!-- Department Name -->
+								<v-col cols="12" sm="6" md="6">
+									<v-text-field
+										v-model="department.name"
+										:label="$t('DEPARTMENT_MANAGEMENT.DEPARTMENT_NAME')"
+										solo
+									>
+										<template #prepend-inner>
+											<v-icon small :color="prependIconColor">fas fa-building</v-icon>
+										</template>
+									</v-text-field>
+								</v-col>
+
+								<!-- Department Address -->
+								<v-col cols="12" sm="6" md="6">
+									<v-text-field
+										v-model="department.address"
+										:label="$t('DEPARTMENT_MANAGEMENT.DEPARTMENT_ADDRESS')"
+										solo
+									>
+										<template #prepend-inner>
+											<v-icon small :color="prependIconColor">fas fa-map-marker-alt</v-icon>
+										</template>
+									</v-text-field>
+								</v-col>
+
+								<!-- Department Manager -->
+								<v-col cols="12" sm="6" md="6">
+									<v-text-field
+										v-model="department.manager"
+										:label="$t('DEPARTMENT_MANAGEMENT.DEPARTMENT_MANAGER')"
+										solo
+									>
+										<template #prepend-inner>
+											<v-icon small :color="prependIconColor">fas fa-user-crown</v-icon>
+										</template>
+									</v-text-field>
+								</v-col>
+
+								<!-- Organized Date -->
+								<v-col cols="12" sm="6" md="6">
+									<v-dialog
+										v-model="modalOrganizedDate"
+										:scrollable="false"
+									>
+										<template #activator="{ on, attrs }">
+											<v-text-field
+												v-model="department.organized_date"
+												:label="$t('DEPARTMENT_MANAGEMENT.ORGANIZED_DATE')"
+												readonly
+												solo
+												v-bind="attrs"
+												v-on="on"
+											>
+												<template #prepend-inner>
+													<v-icon small :color="prependIconColor">fas fa-calendar</v-icon>
+												</template>
+											</v-text-field>
+										</template>
+
+										<v-date-picker
+											v-model="department.organized_date"
+											show-current
+											:locale="language"
+											elevation="24"
+											color="green lighten-1"
+											@input="modalOrganizedDate = false"
+										/>
+									</v-dialog>
+								</v-col>
+							</v-row>
+						</v-card-text>
+
+						<v-card-actions>
+							<v-row>
+								<v-col cols="12">
+									<v-btn class="primary-btn float-right ml-3" @click="doRegister()">
+										<v-icon left>fas fa-plus-circle</v-icon>
+										<span>Register</span>
+									</v-btn>
+
+									<v-btn class="danger-btn float-right" @click="registerDialog = false">
+										<v-icon left>mdi-close-box</v-icon>
+										<span>Cancel</span>
+									</v-btn>
+								</v-col>
+							</v-row>
+						</v-card-actions>
+					</v-card>
+				</v-dialog>
 			</b-overlay>
 		</v-app>
 	</div>
 </template>
 
 <script>
+import vHeaderPage from '@/components/atoms/vHeaderPage';
+
 export default {
     name: 'DepartmentManagementList',
+    components: {
+        vHeaderPage,
+    },
     data() {
         return {
             DepartmentList: [],
@@ -76,6 +188,15 @@ export default {
                 blur: '1rem',
                 rounded: 'sm',
             },
+
+            department: {
+                name: '',
+                address: '',
+                manager: '',
+                organized_date: '',
+            },
+
+            modalOrganizedDate: false,
 
             headers: [
                 { text: this.$t('DEPARTMENT_MANAGEMENT.DEPARTMENT_NAME') + ' ⇅', sortable: true, value: 'department_name' },
@@ -136,6 +257,10 @@ export default {
                 },
             ],
 
+            prependIconColor: '#1E2A55',
+
+            registerDialog: false,
+
             search: '',
 
             language: this.$store.getters.language,
@@ -148,6 +273,10 @@ export default {
         getDepartmentList() {
             console.log('Get Department List');
         },
+
+        doRegister() {
+            console.log('Do Register');
+        },
     },
 };
 </script>
@@ -158,18 +287,24 @@ export default {
   .department-management {
     max-height: 768px;
 
-    ::v-deep th {
-      font-weight: bolder !important;
-      color: $white !important;
-      background-color: $cloud-burst;
+    ::v-deep .v-dialog {
+      overflow-y: visible;
     }
 
-    ::v-deep th {
-      text-align: center !important;
-    }
+    .department-management-list-table {
+      ::v-deep th {
+        font-weight: bolder !important;
+        color: $white !important;
+        background-color: $cloud-burst;
+      }
 
-    ::v-deep td {
-      text-align: center !important;
+      ::v-deep th {
+        text-align: center !important;
+      }
+
+      ::v-deep td {
+        text-align: center !important;
+      }
     }
   }
 

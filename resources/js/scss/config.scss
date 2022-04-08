@@ -44,6 +44,72 @@
     }
 }
 
+.primary-btn {
+  min-width: 150px !important;
+  color: $white !important;
+  background-color: $cloud-burst !important;
+
+  &:hover {
+    opacity: .8;
+    color: $black !important;
+    background-color: $white !important;
+  }
+
+  &:active {
+    color: $black !important;
+      background-color: $white !important;
+  }
+
+  &:focus {
+    color: $black !important;
+      background-color: $white !important;
+  }
+}
+
+.warning-btn {
+  min-width: 150px !important;
+  color: $white !important;
+  background-color: $cream-brulee !important;
+
+  &:hover {
+    opacity: .8;
+    color: $cream-brulee !important;
+    background-color: $white !important;
+  }
+
+  &:active {
+    color: $cream-brulee !important;
+      background-color: $white !important;
+  }
+
+  &:focus {
+    color: $cream-brulee !important;
+      background-color: $white !important;
+  }
+}
+
+.danger-btn {
+  min-width: 150px !important;
+  color: $white !important;
+  background-color: $froly !important;
+
+  &:hover {
+    opacity: .8;
+    color: $froly !important;
+    background-color: $white !important;
+  }
+
+  &:active {
+    color: $froly !important;
+      background-color: $white !important;
+  }
+
+  &:focus {
+    color: $froly !important;
+      background-color: $white !important;
+  }
+}
+
 .tooltip-inner {
     min-width: 300px !important;
 }

@@ -33,11 +33,11 @@ export default {
             &__straight {
                 width: 8px;
                 line-height: 1rem;
-                background-color: $white;
+                background-color: $cloud-burst;
             }
 
             &__text {
-                font-size: 20px;
+                font-size: 18px;
                 margin-left: 10px;
             }
         }

@@ -18,8 +18,8 @@
 				</b-col>
 
 				<b-col>
-					<div :class="{ 'dev__btn-lang': true, 'dev__choose-lang': language === 'vn' }">
-						<b-button :disabled="isDisabledVnBtn" @click="setLanguage('vn')">
+					<div :class="{ 'dev__btn-lang': true, 'dev__choose-lang': language === 'vi' }">
+						<b-button :disabled="isDisabledVnBtn" @click="setLanguage('vi')">
 							<b-img class="flag-icon" :src="Vietnam" />
 							<span>{{ $t('DEV.VIETNAMESE') }}</span>
 						</b-button>
@@ -55,7 +55,7 @@ export default {
             if (lang === 'en') {
                 this.isDisabledEnBtn = true;
                 this.isDisabledVnBtn = false;
-            } else if (lang === 'vn') {
+            } else if (lang === 'vi') {
                 this.isDisabledEnBtn = false;
                 this.isDisabledVnBtn = true;
             }
