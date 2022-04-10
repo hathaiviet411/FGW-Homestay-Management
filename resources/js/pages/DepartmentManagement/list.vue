@@ -172,6 +172,8 @@
 <script>
 import vHeaderPage from '@/components/atoms/vHeaderPage';
 
+import { getListDepartment } from '@/api/modules/department';
+
 export default {
     name: 'DepartmentManagementList',
     components: {
@@ -270,7 +272,8 @@ export default {
         this.getDepartmentList();
     },
     methods: {
-        getDepartmentList() {
+        async getDepartmentList() {
+            await getListDepartment('/departments');
             console.log('Get Department List');
         },
 
