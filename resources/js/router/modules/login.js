@@ -1,12 +1,8 @@
-const Login = {
-	path: '/login',
-	name: 'Login',
-	hidden: true,
-	component: () => import(/* webpackChunkName: "Login" */ '@/pages/Login/index.vue'),
-	meta: {
-		title: 'ROUTER.LOGIN',
-		icon: ''
-	}
+const login = {
+    path: '/login',
+    name: 'Login',
+    hidden: true,
+    component: () => import(/* webpackChunkName: "Login" */ '@/pages/Login/index.vue'),
 };
 
-export default Login;
+export default login;

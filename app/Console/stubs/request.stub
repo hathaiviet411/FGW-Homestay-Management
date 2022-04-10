@@ -1,7 +1,6 @@
 <?php
 /**
- * Created by TienNamNguyen.
- * User: namnt
+ * Created by VeHo.
  * Year: DummyDate
  */
 
@@ -29,28 +28,29 @@ class DummyClass extends FormRequest
      */
     public function rules()
     {
-          switch (Route::getCurrentRoute()->getActionMethod()){
-                case 'update':
-                    return $this->getCustomRule();
-                case 'store':
-                    return $this->getCustomRule();
-                default:
-                    return [];
-          }
+        switch (Route::getCurrentRoute()->getActionMethod()) {
+            case 'update':
+                return $this->getCustomRule();
+            case 'store':
+                return $this->getCustomRule();
+            default:
+                return [];
+        }
     }
 
-     public function getCustomRule(){
-        if(Route::getCurrentRoute()->getActionMethod() == 'update'){
+    public function getCustomRule()
+    {
+        if (Route::getCurrentRoute()->getActionMethod() == 'update') {
             return [
 
             ];
         }
-        if(Route::getCurrentRoute()->getActionMethod() == 'store'){
-            return  [
+        if (Route::getCurrentRoute()->getActionMethod() == 'store') {
+            return [
 
             ];
         }
-     }
+    }
 
     public function messages()
     {

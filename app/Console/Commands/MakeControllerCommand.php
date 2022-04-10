@@ -48,7 +48,7 @@ class MakeControllerCommand extends BaseCommand
         $this->files->put($path, $this->buildClass($this->fileName));
         $this->info($this->type.' created successfully.');
 
-        $this->line("<info>Created Controller :</info> $this->fileName");
+        $this->line("<info>Created Repository :</info> $this->fileName");
     }
 
     /**
@@ -82,8 +82,10 @@ class MakeControllerCommand extends BaseCommand
         $mytime = Carbon::now();
         $stub = str_replace('DummyDate', $mytime->toDateString(), $stub);
         $nameSlug = Str::of($this->className)->kebab();
+        $nameSlugApi = Str::slug($nameSlug,'-');
         $nameSlug = Str::slug($nameSlug,'_');
         $stub = str_replace('DummyRoute', $nameSlug, $stub);
+        $stub = str_replace('RouteDummyApi', $nameSlugApi, $stub);
 
         return $stub;
     }
@@ -95,7 +97,7 @@ class MakeControllerCommand extends BaseCommand
      */
     protected function getStub()
     {
-        return app_path() . '/Console/stubs/controller.stub';
+        return app_path() . '\Console\stubs\controller.stub';
     }
 
     /**

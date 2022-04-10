@@ -1,46 +1,77 @@
 {
-	"private": true,
-	"scripts": {
-		"dev": "npm run development",
-		"development": "mix",
-		"watch": "mix watch",
-		"watch-poll": "mix watch -- --watch-options-poll=1000",
-		"hot": "mix watch --hot",
-		"prod": "npm run production",
-		"production": "mix --production",
-		"postinstall": "npm run prod",
-		"prepare": "husky install"
-	},
-    "lint-staged": {
-        "**/*": "prettier --write --ignore-unknown"
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development BABEL_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "npm run development -- --watch",
+        "watch-poll": "npm run watch -- --watch-poll",
+        "hot": "cross-env NODE_ENV=development BABEL_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "npm run production",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "report": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --report --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "lint": "eslint --ext .js,.vue resources/js",
+        "test": "jest --runInBand --detectOpenHandles"
     },
-	"devDependencies": {
-		"@popperjs/core": "^2.10.2",
-		"axios": "^0.21",
-		"babel-plugin-syntax-dynamic-import": "^6.18.0",
-		"babel-plugin-syntax-jsx": "^6.18.0",
-		"babel-plugin-transform-vue-jsx": "^3.7.0",
-		"bootstrap": "^4.6.0",
-		"husky": "^7.0.4",
-		"laravel-mix": "^6.0.6",
-		"lint-staged": "^12.1.4",
-		"lodash": "^4.17.19",
-		"postcss": "^8.1.14",
-		"prettier": "2.5.1",
-		"resolve-url-loader": "^3.1.2",
-		"sass": "^1.32.11",
-		"sass-loader": "^11.0.1",
-		"vue": "^2.6.14",
-		"vue-loader": "^15.9.8",
-		"vue-template-compiler": "^2.6.12",
-		"webpack-chunk-rename-plugin": "^1.0.3"
-	},
-	"dependencies": {
-		"bootstrap-vue": "^2.21.2",
-		"core-js": "^3.20.0",
-		"js-cookie": "^3.0.1",
-		"vue-i18n": "^8.26.7",
-		"vue-router": "^3.5.3",
-		"vuex": "^3.6.2"
-	}
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "resources/**/*.{js,vue}": [
+            "eslint --fix",
+            "git add"
+        ]
+    },
+    "devDependencies": {
+        "@babel/core": "^7.14.3",
+        "@babel/preset-env": "^7.14.4",
+        "@mdi/font": "^6.6.96",
+        "@vue/test-utils": "^1.2.0",
+        "axios": "^0.21.1",
+        "babel-core": "^7.0.0-bridge.0",
+        "babel-jest": "^27.0.2",
+        "bootstrap": "^4.6.0",
+        "cross-env": "^7.0",
+        "jquery": "^3.2",
+        "laravel-mix": "^5.0.1",
+        "lodash": "^4.17.19",
+        "popper.js": "^1.12",
+        "resolve-url-loader": "^2.3.1",
+        "sass": "^1.20.1",
+        "sass-loader": "^8.0.0",
+        "vue": "^2.6.12",
+        "vue-cli-plugin-vuetify": "~2.4.2",
+        "vue-jest": "^3.0.7",
+        "vue-template-compiler": "^2.6.10",
+        "vuetify-loader": "^1.7.0"
+    },
+    "dependencies": {
+        "babel-eslint": "^10.1.0",
+        "bootstrap-vue": "^2.21.2",
+        "chart.js": "^3.7.1",
+        "eslint": "^7.19.0",
+        "eslint-loader": "^4.0.2",
+        "eslint-plugin-vue": "^7.5.0",
+        "eslint-webpack-plugin": "^2.5.0",
+        "html2pdf.js": "^0.10.1",
+        "jest": "^27.0.3",
+        "jest-serializer-vue": "^2.0.2",
+        "jest-transform-stub": "^2.0.0",
+        "js-cookie": "^2.2.1",
+        "jspdf": "^2.5.0",
+        "jspdf-html2canvas": "^1.4.9",
+        "laravel-echo": "^1.11.2",
+        "laravel-mix-eslint": "^0.2.0",
+        "lint-staged": "^10.5.4",
+        "pusher-js": "^7.0.3",
+        "vue-chartjs": "^4.0.4",
+        "vue-i18n": "^8.24.4",
+        "vue-moment": "^4.1.0",
+        "vue-router": "^3.5.1",
+        "vuetify": "^2.4.0",
+        "vuex": "^3.6.2",
+        "webpack-bundle-analyzer": "^4.2.0",
+        "webpack-chunk-rename-plugin": "^1.0.3"
+    }
 }
