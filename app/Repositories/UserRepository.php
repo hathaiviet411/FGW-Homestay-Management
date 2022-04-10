@@ -46,7 +46,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
     {
         $sortby = $request->has('sortby') ? $request->sortby : 'users.id';
         if ($sortby == 'name') {
-            $sortby = 'users.user_name';
+            $sortby = 'users.full_name';
         }
         if ($sortby == 'role') {
             $sortby = 'roles.name';
@@ -57,7 +57,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
 
         $sorttype = $request->has('sorttype') && $request->sorttype ? 'desc' : 'asc';
 
-        $query = User::select("users.id", "users.user_code", "users.department_id", "users.user_name",
+        $query = User::select("users.id", "users.user_code", "users.department_id", "users.full_name",
             "roles.name as role_name", "departments.name as departments_name", "model_has_roles.model_type")
             ->leftJoin('model_has_roles', 'model_has_roles.model_id', '=', 'users.id')
             ->leftJoin('roles', 'roles.id', '=', 'model_has_roles.role_id')
@@ -67,7 +67,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
             $query->where('user_code', 'LIKE', '%' . $request->user_code . '%');
         if ($request->has('name')) {
             $query->where(function ($query) use ($request) {
-                $query->where('user_name', 'LIKE', '%' . $request->name . '%');
+                $query->where('full_name', 'LIKE', '%' . $request->name . '%');
             });
         }
         $query->when($request->get('department_id'), function ($query) use ($request) {
@@ -84,7 +84,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
             $user = $this->model->create([
                 'user_code' => $attributes['user_code'],
                 'department_id' => $attributes['department_id'],
-                'user_name' => $attributes['user_name'],
+                'full_name' => $attributes['full_name'],
                 'password' => $attributes['password'],
                 'created_by' => Auth::id(),
             ]);
@@ -110,7 +110,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
                     return ['message' => $mes];
                 }
             }
-            $user->user_name = $request['user_name'];
+            $user->full_name = $request['full_name'];
             $user->department_id = $request['department_id'];
 
             if (isset($request['password'])) {

@@ -16,9 +16,9 @@ class RoleSeeder extends Seeder
     {
         if (!Role::first()) {
             Role::insert([
-                ['name' => ROLE_HEADQUARTER, 'guard_name' => 'api'],
-                ['name' => ROLE_OPERATOR, 'guard_name' => 'api'],
-                ['name' => ROLE_TEAM, 'guard_name' => 'api'],
+                ['name' => ROLE_ADMINISTRATOR, 'guard_name' => 'api'],
+                ['name' => ROLE_MANAGER, 'guard_name' => 'api'],
+                ['name' => ROLE_STAFF, 'guard_name' => 'api'],
             ]);
         }
     }

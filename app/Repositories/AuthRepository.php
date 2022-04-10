@@ -28,7 +28,7 @@ class AuthRepository  implements AuthRepositoryInterface
         $mes = '';
         if ($attempt) {
             return [
-                'user' => User::where('user_code', $request->user_code)->first(['id', 'user_code', 'user_name', 'department_id']),
+                'user' => User::where('user_code', $request->user_code)->first(['id', 'user_code', 'full_name', 'department_id']),
                 'attempt' => $attempt,
             ];
         } else {

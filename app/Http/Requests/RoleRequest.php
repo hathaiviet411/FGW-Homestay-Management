@@ -39,7 +39,7 @@ class RoleRequest extends FormRequest
           }
     }
 
-     public function getCustomRule(){
+    public function getCustomRule(){
         if(Route::getCurrentRoute()->getActionMethod() == 'update'){
             return [
 
@@ -50,7 +50,7 @@ class RoleRequest extends FormRequest
 
             ];
         }
-     }
+    }
 
     public function messages()
     {

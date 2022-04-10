@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<b-dropdown
-			v-if="!($store.getters.roles[0] === 'team')"
+			v-if="$store.getters.roles[0] === 'administrator'"
 			id="department-selector"
 			text="Department Selector"
 			block
@@ -22,10 +22,15 @@
 			>
 				<span class="department-name">{{ (department.department_name) }}</span>
 			</b-dropdown-item>
-
 		</b-dropdown>
 
-		<b-button v-else id="department-selector" block class="mt-2 department-card" right>
+		<b-button
+			v-else
+			id="department-selector"
+			block
+			class="mt-2 department-card"
+			right
+		>
 			<span class="department-name">{{ currentDepartmentName }}</span>
 		</b-button>
 	</div>
@@ -40,11 +45,11 @@ export default {
             ListDepartment: [
                 {
                     department_id: 1,
-                    department_name: 'Hà Nội',
+                    department_name: 'Administration',
                 },
             ],
             currentDepartmentID: 1,
-            currentDepartmentName: 'Hà Nội',
+            currentDepartmentName: 'Administration',
         };
     },
     created() {

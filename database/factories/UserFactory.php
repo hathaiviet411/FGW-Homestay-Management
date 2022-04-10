@@ -28,7 +28,7 @@ class UserFactory extends Factory
         $lstUser = User::pluck('id')->toArray();
         return [
             'user_code' => Common::randNotInArr(111111, 999999, $lstUser),
-            'user_name' => $this->faker->name,
+            'full_name' => $this->faker->name,
             'password' => Hash::make('123456789'),
         ];
     }

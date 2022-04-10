@@ -20,19 +20,28 @@ class UserSeeder extends Seeder
             $user = User::create([
                 'user_code' => 111111,
                 'password' => '123456789',
-                'user_name' => 'Super Admin'
+                'full_name' => 'Hà Thái Việt'
             ]);
 
-            $role = Role::findByName(ROLE_HEADQUARTER, 'api');
+            $role = Role::findByName(ROLE_ADMINISTRATOR, 'api');
             $user->syncRoles($role);
 
             $user = User::create([
                 'user_code' => 666666,
                 'password' => '123456789',
-                'user_name' => 'User Team',
+                'full_name' => 'Mèo Mặt Trăng',
             ]);
 
-            $role = Role::findByName(ROLE_TEAM, 'api');
+            $role = Role::findByName(ROLE_MANAGER, 'api');
+            $user->syncRoles($role);
+
+            $user = User::create([
+                'user_code' => 666666,
+                'password' => '123456789',
+                'full_name' => 'Sói Vệ Sinh',
+            ]);
+
+            $role = Role::findByName(ROLE_STAFF, 'api');
             $user->syncRoles($role);
         }
     }

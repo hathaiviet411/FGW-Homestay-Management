@@ -41,7 +41,7 @@ class UserRequest extends FormRequest
     public function getCustomRuleUpdateOne()
     {
         return [
-            "user_name" => "required|string",
+            "full_name" => "required|string",
             "user_code" => "required|unique:users,user_code,null,user_code,deleted_at,NULL",
             "roles*" => "required|string",
             "department_id" => "required|number",
@@ -59,7 +59,7 @@ class UserRequest extends FormRequest
     public function getCustomRuleStore()
     {
         return [
-            "user_name" => "required|string",
+            "full_name" => "required|string",
             "user_code" => "required|unique:users,user_code,null,user_code,deleted_at,NULL",
             "password" => "required|string",
             "roles*" => "required",
@@ -71,7 +71,7 @@ class UserRequest extends FormRequest
     {
         return [
             "roles*" => "required",
-            "user_name" => "required|string|max:255",
+            "full_name" => "required|string|max:255",
             "password" => "nullable|min:8",
             "current_password" => "nullable|min:8",
             "department_id" => "nullable|integer"

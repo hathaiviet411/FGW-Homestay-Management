@@ -18,7 +18,7 @@ class UserController extends BaseController
 
     public function __construct(UserRepository $repository)
     {
-        $this->middleware(['role_or_permission:' . ROLE_HEADQUARTER]);
+        $this->middleware(['role_or_permission:' . ROLE_ADMINISTRATOR]);
         $this->repository = $repository;
     }
     /**
@@ -32,7 +32,7 @@ class UserController extends BaseController
      *     description="response success",
      *     @OA\MediaType(
      *       mediaType="application/json",
-     *        example={"code": 200,"data": {{"id": 1,"user_name": "Nguyen Tien Nam","user_code": 111111,"roles": {"headquater","admin"},"department_id": 1},{"id": 2,"user_name": "Vu Duck Viet","user_code": 222222,"roles": {"headquater"},"department_id": 1}}}
+     *        example={"code": 200,"data": {{"id": 1, "full_name": "Hà Thái Việt", "user_code": 111111, "roles": "administrator", "department_id": 1}}}
      *     )
      *   ),
      *  @OA\Parameter(
@@ -135,7 +135,7 @@ class UserController extends BaseController
      *     description="Submit request successfully",
      *     @OA\MediaType(
      *       mediaType="application/json",
-     *     example={"code": 200,"data": {"id": 1,"user_name": "Nguyen Tien Nam","user_code": 111111,"roles": {"admin","headquater"},"department_id": 1}}
+     *     example={"code": 200,"data": {"id": 1, "full_name": "Hà Thái Việt", "user_code": 111111, "roles": "administrator", "department_id": 1}}
      *     )
      *   ),
      *   @OA\Response(
@@ -189,9 +189,9 @@ class UserController extends BaseController
      * @OA\RequestBody(
      *       @OA\MediaType(
      *          mediaType="application/json",
-     *          example={"user_name": "Nguyen Tien Nam","user_code": 111111,"password": null,"current_password": null,"roles": 1,"department_id": 1},
+     *          example={"full_name": "Hà Thái Việt", "user_code": 111111, "password": null, "current_password": null, "roles": 1, "department_id": 1},
      *          @OA\Schema(
-     *            required={"user_name"},
+     *            required={"full_name"},
      *            @OA\Property(
      *              property="name",
      *              format="string",
@@ -254,9 +254,9 @@ class UserController extends BaseController
      * @OA\RequestBody(
      *       @OA\MediaType(
      *          mediaType="application/json",
-     *          example={"user_name": "Nguyen Tien Nam","user_code": 111111,"password": "123@123a","roles": 1,"department_id": 1},
+     *          example={"full_name": "Hà Thái Việt", "user_code": 111111, "password": "123@123a", "roles": 1, "department_id": 1},
      *          @OA\Schema(
-     *            required={"user_name"},
+     *            required={"full_name"},
      *            @OA\Property(
      *              property="name",
      *              format="string",

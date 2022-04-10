@@ -17,14 +17,14 @@ use Illuminate\Http\Request;
 class RoleController extends Controller
 {
 
-     /**
+    /**
      * var Repository
      */
     protected $repository;
 
     public function __construct(RoleRepositoryInterface $repository)
     {
-        $this->middleware(['role_or_permission:' . ROLE_HEADQUARTER]);
+        $this->middleware(['role_or_permission:' . ROLE_ADMINISTRATOR]);
         $this->repository = $repository;
     }
 
@@ -39,7 +39,7 @@ class RoleController extends Controller
      *     description="Send request success",
      *     @OA\MediaType(
      *      mediaType="application/json",
-     *      example={"code":200,"data":{{"id": 1,"name": "admin"},{"id": 2,"name": "headquater"},{"id": 3,"name": "TienNamNguyen"},{"id": 1,"name": "God"}}}
+     *      example={"code":200,"data":{{"id": 1,"name": "administrator"}}}
      *     )
      *   ),
      *   @OA\Response(

@@ -188,7 +188,7 @@ class UserManagementTest extends TestCase
         $user = [
             'user_code' => rand(3,10000),
             'department_id' => 1,
-            'user_name' => $this->faker->name,
+            'full_name' => $this->faker->name,
             'password' => '123@123a',
             'created_by' => User::first()->id,
             'updated_by' => User::first()->id,
@@ -201,13 +201,13 @@ class UserManagementTest extends TestCase
     }
 
     public function testUpdateUser() {
-        $userNewRole = ROLE_OPERATOR;
+        $userNewRole = ROLE_STAFF;
         $roleId = Role::findByName($userNewRole)->id;
         $user = $this->userRepository->first();
         $userNewData = [
             'user_code' => $user->user_code,
             'department_id' => $user->department_id,
-            'user_name' => $this->faker->name,
+            'full_name' => $this->faker->name,
             'password' => '123@123a',
             'created_by' => User::first()->id,
             'updated_by' => User::first()->id,
