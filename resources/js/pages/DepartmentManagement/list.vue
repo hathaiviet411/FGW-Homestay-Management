@@ -174,6 +174,10 @@ import vHeaderPage from '@/components/atoms/vHeaderPage';
 
 import { getListDepartment } from '@/api/modules/department';
 
+const urlAPI = {
+    apiGetListDepartment: '/departments',
+};
+
 export default {
     name: 'DepartmentManagementList',
     components: {
@@ -208,56 +212,7 @@ export default {
                 { text: this.$t('DEPARTMENT_MANAGEMENT.ORGANIZED_DATE') + ' ⇅', sortable: true, value: 'organized_date' },
             ],
 
-            items: [
-                {
-                    department_id: 1,
-                    department_name: 'Ban Lễ Tân',
-                    department_address: 'Toà A, Tầng 1',
-                    total_staff: 15,
-                    department_manager: 'Nguyễn Văn Cừ',
-                    organized_date: '2020-01-01',
-                },
-                {
-                    department_id: 2,
-                    department_name: 'Ban Vệ Sinh',
-                    department_address: 'Toà B, Tầng 1',
-                    total_staff: 15,
-                    department_manager: 'Nguyễn Bảo Linh',
-                    organized_date: '2020-01-01',
-                },
-                {
-                    department_id: 3,
-                    department_name: 'Ban Quản Lý',
-                    department_address: 'Toà C, Tầng 1',
-                    total_staff: 15,
-                    department_manager: 'Trần Thị Hồng Linh',
-                    organized_date: '2020-01-01',
-                },
-                {
-                    department_id: 4,
-                    department_name: 'Ban Dịch Vụ',
-                    department_address: 'Toà D, Tầng 1',
-                    total_staff: 15,
-                    department_manager: 'Vũ Thu Thuỷ',
-                    organized_date: '2020-01-01',
-                },
-                {
-                    department_id: 5,
-                    department_name: 'Ban Kỹ Thuật',
-                    department_address: 'Toà E, Tầng 1',
-                    total_staff: 15,
-                    department_manager: 'Nguyễn Thanh Hoàn',
-                    organized_date: '2020-01-01',
-                },
-                {
-                    department_id: 6,
-                    department_name: 'Ban An Ninh',
-                    department_address: 'Toà F, Tầng 1',
-                    total_staff: 15,
-                    department_manager: 'Nguyễn Văn Cừ',
-                    organized_date: '2020-01-01',
-                },
-            ],
+            items: [],
 
             prependIconColor: '#1E2A55',
 
@@ -273,8 +228,17 @@ export default {
     },
     methods: {
         async getDepartmentList() {
-            await getListDepartment('/departments');
             console.log('Get Department List');
+            try {
+                const response = await getListDepartment(urlAPI.apiGetListDepartment);
+
+                if (response.status === 200) {
+                    this.items = response.result.data;
+                    console.log(this.items);
+                }
+            } catch (error) {
+                console.log(error);
+            }
         },
 
         doRegister() {

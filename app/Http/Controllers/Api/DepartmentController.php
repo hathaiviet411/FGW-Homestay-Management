@@ -15,9 +15,13 @@ class DepartmentController extends Controller
      */
     public function index()
     {   
-        $department_list = Department::orderBy('created_at', 'desc')->get();
-        return $this->responseJson(200, $department_list);
-        // return 'Con mèo mặt lìn';
+        $department_list = Department::paginate(10);
+        $response = [
+          'status' => 200,
+          'result' => $department_list,
+        ];
+
+        return response()->json($response);
     }
 
     /**
