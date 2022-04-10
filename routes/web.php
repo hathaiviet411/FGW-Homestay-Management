@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\SpaController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AutoTestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +13,9 @@ use App\Http\Controllers\AutoTestController;
 |
 */
 
-// Route::view('/{any}', 'home')
-//     ->where('any', '.*');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/autotest',[AutoTestController::class, 'index']);
+
 Route::view('/{any}', 'spa')->where('any', '.*');
