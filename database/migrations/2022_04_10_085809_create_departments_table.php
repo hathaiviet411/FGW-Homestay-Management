@@ -17,6 +17,7 @@ class CreateDepartmentsTable extends Migration
             $table->id();
             $table->string('department_name');
             $table->string('department_address');
+            $table->bigInteger('department_manager');
             $table->bigInteger('total_staff');
             $table->dateTime('organized_date');
             $table->timestamps();
