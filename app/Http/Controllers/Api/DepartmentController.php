@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 class DepartmentController extends Controller
 {
 
-     /**
+    /**
      * var Repository
      */
     protected $repository;
@@ -37,7 +37,7 @@ class DepartmentController extends Controller
      *     description="Send request success",
      *     @OA\MediaType(
      *      mediaType="application/json",
-     *      example={"code":200,"data":{{"id": 1,"name": "Tokyo"}, {"id": 2,"name": "Kyoto"}, {"id": 3,"name": "Bodoimethienha"}}}
+     *      example={"code":200,"data":{{"id": 1, "name": "Ban Lễ Tân"}}}
      *     )
      *   ),
      *   @OA\Response(
@@ -68,5 +68,17 @@ class DepartmentController extends Controller
         } catch (\Exception $e) {
             throw $e;
         }
+    }
+
+    public function store(DepartmentRequest $request)
+    { 
+      try {
+        $data = $request->all();
+        $department = $this->repository->create($data);
+        dd($department);
+        return $this->responseJson(200, new BaseResource($department));
+      } catch (\Exception $error) {
+        throw $error;
+      }
     }
 }

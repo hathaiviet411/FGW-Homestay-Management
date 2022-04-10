@@ -236,7 +236,8 @@ class UserController extends BaseController
         $r = ['id' => $id];
         $validator = Validator::make($r, ['id' => 'required|exists:users,id',]);
         if ($validator->fails()) {
-            return $this->responseJsonError(Response::HTTP_UNPROCESSABLE_ENTITY, $validator->messages());
+            return $this->responseJsonError(Response::HTTP_UNPROCESSABLE_ENTITY);
+            // return $this->responseJsonError(Response::HTTP_UNPROCESSABLE_ENTITY, $validator->messages());
         }
 
         if ($this->repository->update($request->all(), $id)) {
