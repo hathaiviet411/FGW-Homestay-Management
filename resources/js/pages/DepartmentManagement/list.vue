@@ -353,6 +353,10 @@ export default {
                 const response = await getListDepartment(urlAPI.apiGetListDepartment);
 
                 if (response.status === 200) {
+                    for (let i = 0; i < response.result.data.length; i++) {
+                        response.result.data[i].organized_date = getYMDFromString(response.result.data[i].organized_date);
+                    }
+
                     this.items = response.result.data;
                 }
             } catch (error) {
