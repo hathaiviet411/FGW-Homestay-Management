@@ -27,6 +27,15 @@ export default {
                 REQUIRE_PASSWORD: 'Please enter Password',
             },
 
+            DEPARTMENT_MANAGEMENT: {
+                CREATE_DEPARTMENT_SUCCESS: 'Create department successfully.',
+                CREATE_DEPARTMENT_FAILED: 'Create department failed.',
+                UPDATE_DEPARTMENT_SUCCESS: 'Update department successfully.',
+                UPDATE_DEPARTMENT_FAILED: 'Update department failed.',
+                DELETE_DEPARTMENT_SUCCESS: 'Delete department successfully.',
+                DELETE_DEPARTMENT_FAILED: 'Delete department failed.',
+            },
+
             LOGOUT: {
                 SUCCESS: 'You have successfully logged out.',
             },
@@ -155,7 +164,7 @@ export default {
     },
 
     MODAL: {
-        DELETE_CONFIRMATION: 'Are you sure to delete 【{name}】?',
+        DELETE_CONFIRMATION: 'Are you sure to delete ?',
         YES: 'Yes',
         NO: 'No',
     },

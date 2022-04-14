@@ -57,7 +57,7 @@
 										</v-col>
 
 										<v-col cols="6" class="text-left">
-											<v-icon color="red" @click="doRemoveDepartment(item.id)">mdi-delete</v-icon>
+											<v-icon color="red" @click="deleteDialog = true, deleting_id = item.id">mdi-delete</v-icon>
 										</v-col>
 									</v-row>
 								</template>
@@ -241,6 +241,41 @@
 						</v-card-actions>
 					</v-card>
 				</v-dialog>
+
+				<!-- Delete Dialog -->
+				<v-dialog v-model="deleteDialog" max-width="500" persistent no-click-animation>
+					<v-card>
+						<v-btn elevation="3" block tile class="mb-3 cornflower-btn">
+							<span>{{ $t('DEPARTMENT_MANAGEMENT.DELETE_DEPARTMENT') }}</span>
+						</v-btn>
+
+						<v-card-text>
+							<v-row class="mt-1">
+								<v-col cols="12" class="text-center">
+									<h5>{{ $t('MODAL.DELETE_CONFIRMATION') }}</h5>
+								</v-col>
+							</v-row>
+						</v-card-text>
+
+						<v-card-actions>
+							<v-row>
+								<v-col cols="6" class="text-center">
+									<v-btn class="primary-btn" @click="deleteDialog = false">
+										<v-icon left>mdi-close-box</v-icon>
+										<span>{{ $t('MODAL.NO') }}</span>
+									</v-btn>
+								</v-col>
+
+								<v-col cols="6" class="text-center">
+									<v-btn class="danger-btn" @click="doRemoveDepartment(deleting_id)">
+										<v-icon left>fas fa-eraser</v-icon>
+										<span>{{ $t('MODAL.YES') }}</span>
+									</v-btn>
+								</v-col>
+							</v-row>
+						</v-card-actions>
+					</v-card>
+				</v-dialog>
 			</b-overlay>
 		</v-app>
 	</div>
@@ -250,6 +285,8 @@
 import { getListDepartment, getDepartment, createDepartment, updateDepartment, deleteDepartment } from '@/api/modules/department';
 
 import { getYMDFromString } from './helper';
+
+import { MakeToast } from '@/utils/MakeToast';
 
 const urlAPI = {
     apiGetListDepartment: '/departments',
@@ -299,6 +336,9 @@ export default {
 
             editDialog: false,
 
+            deleteDialog: false,
+            deleting_id: '',
+
             search: '',
 
             language: this.$store.getters.language,
@@ -309,23 +349,18 @@ export default {
     },
     methods: {
         async getDepartmentList() {
-            console.log('Get Department List');
             try {
                 const response = await getListDepartment(urlAPI.apiGetListDepartment);
 
                 if (response.status === 200) {
                     this.items = response.result.data;
                 }
-
-                console.log(this.items);
             } catch (error) {
                 console.log(error);
             }
         },
 
         async getDepartment(department_id) {
-            console.log('Get One Department');
-
             this.department = {
                 id: '',
                 department_name: '',
@@ -352,23 +387,32 @@ export default {
         },
 
         async doRegisterDepartment() {
-            console.log('Do Register Department');
             try {
                 const response = await createDepartment(urlAPI.apiCreateDepartment, this.department);
 
                 if (response.status === 200) {
                     await this.getDepartmentList();
+
+                    MakeToast({
+                        variant: 'success',
+                        title: this.$t('TOAST.TITLE.SUCCESS'),
+                        content: this.$t('TOAST.CONTENT.DEPARTMENT_MANAGEMENT.CREATE_DEPARTMENT_SUCCESS'),
+                    });
+
                     this.registerDialog = false;
                 }
             } catch (error) {
-                console.log(error);
+                MakeToast({
+                    variant: 'warning',
+                    title: this.$t('TOAST.TITLE.WARNING'),
+                    content: error || this.$t('TOAST.CONTENT.DEPARTMENT_MANAGEMENT.CREATE_DEPARTMENT_FAILED'),
+                });
+
+                this.registerDialog = false;
             }
         },
 
         async doUpdateDepartment(department_id) {
-            console.log('Do Update Department');
-            console.log(department_id);
-
             const URL = `${urlAPI.apiUpdateDepartment}/${department_id}`;
 
             try {
@@ -376,27 +420,50 @@ export default {
 
                 if (response.status === 200) {
                     await this.getDepartmentList();
-                    this.registerDialog = false;
+
+                    MakeToast({
+                        variant: 'success',
+                        title: this.$t('TOAST.TITLE.SUCCESS'),
+                        content: this.$t('TOAST.CONTENT.DEPARTMENT_MANAGEMENT.UPDATE_DEPARTMENT_SUCCESS'),
+                    });
+
+                    this.editDialog = false;
                 }
             } catch (error) {
-                console.log(error);
+                MakeToast({
+                    variant: 'warning',
+                    title: this.$t('TOAST.TITLE.WARNING'),
+                    content: error || this.$t('TOAST.CONTENT.DEPARTMENT_MANAGEMENT.UPDATE_DEPARTMENT_FAILED'),
+                });
+
+                this.editDialog = false;
             }
         },
 
-        doRemoveDepartment(department_id) {
-            console.log('Do Remove Department');
-            console.log(department_id);
-
+        async doRemoveDepartment(department_id) {
             const URL = `${urlAPI.apiDeleteDepartment}/${department_id}`;
 
             try {
-                deleteDepartment(URL).then(response => {
-                    if (response.status === 200) {
-                        this.getDepartmentList();
-                    }
-                });
+                const response = await deleteDepartment(URL);
+                if (response.status === 200) {
+                    this.getDepartmentList();
+
+                    MakeToast({
+                        variant: 'success',
+                        title: this.$t('TOAST.TITLE.SUCCESS'),
+                        content: this.$t('TOAST.CONTENT.DEPARTMENT_MANAGEMENT.DELETE_DEPARTMENT_SUCCESS'),
+                    });
+
+                    this.deleteDialog = false;
+                }
             } catch (error) {
-                console.log(error);
+                MakeToast({
+                    variant: 'warning',
+                    title: this.$t('TOAST.TITLE.WARNING'),
+                    content: error || this.$t('TOAST.CONTENT.DEPARTMENT_MANAGEMENT.DELETE_DEPARTMENT_FAILED'),
+                });
+
+                this.deleteDialog = false;
             }
         },
     },
