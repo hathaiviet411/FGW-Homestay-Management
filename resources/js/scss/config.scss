@@ -66,6 +66,28 @@
   }
 }
 
+.cornflower-btn {
+  // min-width: 150px !important;
+  color: $white !important;
+  background-color: $cornflower-blue !important;
+
+  &:hover {
+    opacity: .8;
+    color: $white !important;
+    background-color: $cornflower-blue !important;
+  }
+
+  &:active {
+    color: $black !important;
+    background-color: $white !important;
+  }
+
+  &:focus {
+    color: $black !important;
+    background-color: $white !important;
+  }
+}
+
 .warning-btn {
   min-width: 150px !important;
   color: $white !important;

@@ -14,9 +14,9 @@
 </template>
 
 <script>
-const urlAPI = {
-    urlLogin: `/auth/login`,
-};
+// const urlAPI = {
+//     urlLogin: `/auth/login`,
+// };
 
 import { resetRouter } from '@/router';
 import { postLogin } from '@/api/modules/login';
@@ -55,14 +55,43 @@ export default {
             this.isProcess = true;
 
             if (validateNumberMoreThanZero(this.Account.id) && !validEmptyOrWhiteSpace(this.Account.password)) {
-                const URL = urlAPI.urlLogin;
+                // const URL = urlAPI.urlLogin;
 
-                const DATA = {
-                    user_code: this.Account.id,
-                    password: this.Account.password,
-                };
+                const USER = {};
+                const TOKEN = 'abcd1234efgh5678';
 
-                await this.callApiLogin(URL, DATA);
+                await this.$store.dispatch('user/saveLogin', { USER, TOKEN })
+                    .then(async() => {
+                        this.$toast.success({
+                            content: this.$t('TOAST.CONTENT.LOGIN.SUCCESS'),
+                        });
+
+                        resetRouter();
+
+                        const ROLES = this.$store.getters.roles;
+                        const PERMISSIONS = this.$store.getters.permissions;
+
+                        await this.$store.dispatch('permissions/generateRoutes', { roles: ROLES, permissions: PERMISSIONS })
+                            .then((routes) => {
+                                for (let route = 0; route < routes.length; route++) {
+                                    this.$router.addRoute(routes[route]);
+                                }
+
+                                this.$router.push('/');
+                            });
+                    })
+                    .catch(() => {
+                        this.$toast.error({
+                            content: this.$t('TOAST.CONTENT.OTHER.ERROR'),
+                        });
+                    });
+
+                // const DATA = {
+                //     user_code: this.Account.id,
+                //     password: this.Account.password,
+                // };
+
+                // await this.callApiLogin(URL, DATA);
             } else {
                 this.$toast.warning({
                     content: this.$t('TOAST.CONTENT.LOGIN.WRONG_ID_PASSWORD'),

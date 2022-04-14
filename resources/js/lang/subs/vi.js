@@ -57,6 +57,8 @@ export default {
         DEPARTMENT_MANAGER: 'Quản lí',
         ORGANIZED_DATE: 'Ngày thành lập',
         NEW_DEPARTMENT: 'Thêm phòng ban mới',
+        EDIT_DEPARTMENT: 'Chỉnh sửa thông tin phòng ban',
+        DELETE_DEPARTMENT: 'Xoá phòng ban',
     },
 
     STAFF_MANAGEMENT: {
@@ -137,6 +139,8 @@ export default {
         DEPARTMENT: 'Phòng ban',
         SEARCH: 'Tìm kiếm',
         SORT_BY: 'Sắp xếp theo',
+        ACTIONS: 'Thao tác',
+        CANCEL: 'Huỷ bỏ',
     },
 
     FILTER: {

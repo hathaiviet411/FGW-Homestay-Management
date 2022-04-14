@@ -27,7 +27,7 @@
 						<DateSelector />
 					</b-nav-item>
 
-					<DepartmentSelector />
+					<!-- <DepartmentSelector /> -->
 
 					<b-nav-item>
 						<vButton style="font-weight: bold;" class="btn-logout" :text-button="$t('NAVBAR.LOGOUT')" @click.native="doLogout()" />
@@ -40,14 +40,14 @@
 
 <script>
 import vButton from '@/components/atoms/vButton';
-import DepartmentSelector from '../DepartmentSelector/index';
+// import DepartmentSelector from '../DepartmentSelector/index';
 import DateSelector from '../DateSelector/index';
 
 export default {
     name: 'Navbar',
     components: {
         vButton,
-        DepartmentSelector,
+        // DepartmentSelector,
         DateSelector,
     },
     data() {

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Models\Department;
 use App\Http\Controllers\Controller;
-
 class DepartmentController extends Controller
 {
     /**
@@ -42,16 +41,19 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        $new_department = new Department;
-        $new_department->department_name = $request->department['department_name'];
-        $new_department->department_address = $request->department['department_address'];
-        $new_department->department_manager = $request->department['department_manager'];
-        $new_department->total_staff = $request->department['total_staff'];
-        $new_department->organized_date = $request->department['organized_date'];
+        Department::create([
+          'department_name' => $request['department_name'],
+          'department_address' => $request['department_address'],
+          'department_manager' => $request['department_manager'],
+          'organized_date' => $request['organized_date'],
+        ]);
 
-        $new_department->save();
+        $response = [
+          'status' => 200,
+          'message' => 'Department created successfully',
+        ];
 
-        return $new_department;
+        return response()->json($response);
     }
 
     /**
@@ -73,7 +75,14 @@ class DepartmentController extends Controller
      */
     public function edit($id)
     {
-        //
+      $department = Department::find($id);
+        
+      $response = [
+        'status' => 200,
+        'result' => $department,
+      ];
+
+      return response()->json($response);
     }
 
     /**
@@ -85,7 +94,20 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $department = Department::find($id);
+
+        $department->department_name = $request['department_name'];
+        $department->department_address = $request['department_address'];
+        $department->department_manager = $request['department_manager'];
+        $department->organized_date = $request['organized_date'];
+        $department->save();
+
+        $response = [
+          'status' => 200,
+          'message' => 'Department updated successfully',
+        ];
+
+        return response()->json($response);
     }
 
     /**
@@ -96,6 +118,13 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Department::where('id', $id)->delete();
+
+        $response = [
+          'status' => 200,
+          'message' => 'Department deleted successfully',
+        ];
+
+        return response()->json($response);
     }
 }
